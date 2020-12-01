@@ -1,0 +1,1513 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_utredning_dips.v1
+
+concept
+	[at0000]	-- Kreftmelding kolorektalkreft utredning
+language
+	original_language = <[ISO_639-1::nb]>
+description
+	original_author = <
+		["name"] = <"Borisa Barisa ">
+		["email"] = <"boba@dips.no">
+		["organisation"] = <"DIPS AS, Norway ">
+		["date"] = <"2020-01-03">
+	>
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"Kreftmelding utredning arketypen. ">
+			use = <"Brukes kun til krefmeltding utredning. ">
+			misuse = <"Alt annet utover definert bruk. ">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <"Morten Pavicevic Hørte, DIPS AS, Norway ", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"F0E83699521DCCA0E40EE4012E6B8C55">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Kreftmelding kolorektalkreft utredning
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0337] occurrences matches {0..1} matches {	-- Funn i utredning
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0450, 	-- Primærtumor (med eller uten metastase(r))
+													at0451, 	-- Lokal residiv (med eller uten metastase(r))
+													at0452]	-- Kun metastase(r)
+												}
+											}
+										}
+									}
+									CLUSTER[at0537] occurrences matches {0..1} matches {	-- Sykdomsutbredelse etter ferdig primærutredning og  før primærbehandling
+										items cardinality matches {1..*; unordered} matches {
+											allow_archetype CLUSTER[at0536] occurrences matches {0..*} matches {	-- Lokalisasjon av primærtumor
+												include
+													archetype_id/value matches {/.*/}
+											}
+											CLUSTER[at0349] occurrences matches {0..1} matches {	-- Tumor (T-sykdom)
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0665] occurrences matches {0..*} matches {	-- Tumor Colon
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0666, 	-- TX - Ingen informasjon
+																	at0668, 	-- T0 - Tumor ikke påvist
+																	at0670, 	-- Tis - Carsinoma in situ
+																	at0672, 	-- T1 - Tumor vokser inn i submucosa
+																	at0674, 	-- T2 - Tumor vokser inn i muscularis propria
+																	at0862, 	-- T1-T2 -Tumor vokser inn i submucosa eller muscularis propria
+																	at0676, 	-- T3 - Tumor vokser inn i subserosa eller ikke-peritonealisert pericolisk vev
+																	at0678]	-- T4 - Tumor vokser direkte inn i andre organer eller strukturer
+																}
+															}
+														}
+													}
+													ELEMENT[at0680] occurrences matches {0..*} matches {	-- Tumor Rectum
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0681, 	-- TX - Ingen informasjon
+																	at0683, 	-- T0 - Tumor ikke påvist
+																	at0685, 	-- Tis - Carsinoma in situ
+																	at0687, 	-- T1 - Tumor vokser inn i submucosa
+																	at0689, 	-- T2 - Tumor vokser inn i muscularis propria
+																	at0691, 	-- T3 - Tumor vokser inn i subserosa eller ikke-peritonealisert pericolisk vev
+																	at0693, 	-- T4a - Tumor perforerer viscerale peritoneum
+																	at0695]	-- T4b - Tumor vokser direkte inn i andre organer eller strukturer
+																}
+															}
+														}
+													}
+													CLUSTER[at0411] occurrences matches {0..1} matches {	-- Utredningsmetode
+														items cardinality matches {1..*; unordered} matches {
+															ELEMENT[at0697] occurrences matches {0..*} matches {	-- Utredningsmetode
+																value matches {
+																	DV_CODED_TEXT matches {
+																		defining_code matches {
+																			[local::
+																			at0698, 	-- Biopsi
+																			at0700, 	-- Polypectomi
+																			at0702, 	-- Colo-/rectoskopi
+																			at0704, 	-- Rtg colon
+																			at0706, 	-- MR
+																			at0708, 	-- CT abdomen
+																			at0710, 	-- Colografi (CT)
+																			at0712, 	-- Ultralyd
+																			at0714, 	-- Annet
+																			at0716]	-- Ukjent
+																		}
+																	}
+																}
+															}
+															ELEMENT[at0438] occurrences matches {0..1} matches {	-- Spesifiser
+																value matches {
+																	DV_TEXT matches {*}
+																}
+															}
+														}
+													}
+													ELEMENT[at0015] occurrences matches {0..1} matches {	--  Dato sykdommen ble bekreftet
+														value matches {
+															DV_DATE matches {
+																value matches {yyyy-mm-dd}
+															}
+														}
+													}
+												}
+											}
+											ELEMENT[at0564] occurrences matches {0..1} matches {	-- Antatt avstand fra tumor/malignsuspekt lymfeknute/tumordeposit til mesorectale fascie, unntatt peritoneum (mm)
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::122]>
+														list = <
+															["1"] = <
+																units = <"mm">
+																magnitude = <|0.0..100.0|>
+																precision = <|1|>
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0408] occurrences matches {0..1} matches {	-- Ukjent
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0344] occurrences matches {0..1} matches {	-- Er regionale lymfeknutemetastaser påvist (N-sykdom)?
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0345, 	-- Ja
+															at0346, 	-- Nei
+															at0347]	-- Ikke undersøkt
+														}
+													}
+												}
+											}
+											CLUSTER[at0377] occurrences matches {0..*} matches {	-- N-sykdom
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0832] occurrences matches {0..*} matches {	-- N-status Colon
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0836, 	-- N1 - Metastase til 1-3 regionale lymfeknuter
+																	at0838]	-- N2 - Metastase til 4 eller flere regionale lymfeknuter
+																}
+															}
+														}
+													}
+													ELEMENT[at0833] occurrences matches {0..*} matches {	-- N-status Rectum
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0844, 	-- N1a - Metastase til 1 regional lymfeknute
+																	at0846, 	-- N1b - Metastase til 2-3 regionale lymfeknuter
+																	at0848, 	-- N1c - Tumorknute(r) (satelitt(er)) i subserosa eller i ikke-peritonealisert pericolisk bløtvev uten regional(e) lymfeknutemetastase(r)
+																	at0850]	-- N2 - Metastase til 4 eller flere regionale lymfeknuter
+																}
+															}
+														}
+													}
+													ELEMENT[at0383] occurrences matches {0..1} matches {	-- Antatt maligne lymfeknuter på bekkenvegg/ utenfor MRF(mesorectal fascie)
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0385, 	-- Ja
+																	at0386, 	-- Nei
+																	at0387]	-- Ukjent
+																}
+															}
+														}
+													}
+													ELEMENT[at0384] occurrences matches {0..1} matches {	-- Ekstramural karinnvekst
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0388, 	-- Ja
+																	at0389, 	-- Nei
+																	at0390]	-- Ukjent
+																}
+															}
+														}
+													}
+													CLUSTER[at0458] occurrences matches {0..1} matches {	-- Utredningsmetode
+														items cardinality matches {1..*; unordered} matches {
+															ELEMENT[at0732] occurrences matches {0..*} matches {	-- Utredningsmetode
+																value matches {
+																	DV_CODED_TEXT matches {
+																		defining_code matches {
+																			[local::
+																			at0733, 	-- Ultralyd
+																			at0735, 	-- CT
+																			at0737, 	-- MR
+																			at0739, 	-- Cytologi
+																			at0741, 	-- Biopsi
+																			at0743, 	-- Annet
+																			at0745]	-- Ukjent
+																		}
+																	}
+																}
+															}
+															ELEMENT[at0466] occurrences matches {0..1} matches {	-- Spesifiser
+																value matches {
+																	DV_TEXT matches {*}
+																}
+															}
+														}
+													}
+												}
+											}
+											ELEMENT[at0348] occurrences matches {0..1} matches {	-- Er fjernmetastaser påvist, inkludert lymfeknutemetastaser utenfor regionalt område (M-sykdom)?
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0413, 	-- Ja
+															at0414, 	-- Nei
+															at0415]	-- Ikke undersøkt
+														}
+													}
+												}
+											}
+											CLUSTER[at0538] occurrences matches {0..1} matches {	-- Fjernmetastaser
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0545] occurrences matches {0..*} matches {	-- Lokalisasjon av fjernmetastaser
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0596, 	-- Lever
+																	at0598, 	-- Lunge
+																	at0600, 	-- Peritoneum/peritoneal carcinomatose
+																	at0602, 	-- Skjelett
+																	at0604, 	-- Hjerne
+																	at0606, 	-- Lymfeknuter utenfor regionalt område
+																	at0608]	-- Annen lokalisasjon
+																}
+															}
+														}
+													}
+													ELEMENT[at0610] occurrences matches {0..1} matches {	-- Spesifiser
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+													CLUSTER[at0546] occurrences matches {0..1} matches {	-- Utredsningsmetode for fjernmetastaser
+														items cardinality matches {1..*; unordered} matches {
+															ELEMENT[at0747] occurrences matches {0..*} matches {	-- Utredsningsmetode for fjernmetastaser
+																value matches {
+																	DV_CODED_TEXT matches {
+																		defining_code matches {
+																			[local::
+																			at0748, 	-- Ultralyd
+																			at0750, 	-- CT
+																			at0752, 	-- MR
+																			at0754, 	-- PET
+																			at0756, 	-- Rtg thorax
+																			at0758, 	-- Cytologi
+																			at0760, 	-- Biopsi
+																			at0762, 	-- Annet
+																			at0764]	-- Ukjent
+																		}
+																	}
+																}
+															}
+															ELEMENT[at0550] occurrences matches {0..1} matches {	-- Spesifiser
+																value matches {
+																	DV_TEXT matches {*}
+																}
+															}
+															ELEMENT[at0551] occurrences matches {0..1} matches {	-- Dato for utredning av metastaser
+																value matches {
+																	DV_DATE matches {
+																		value matches {yyyy-mm-dd}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+											CLUSTER[at0401] occurrences matches {0..1} matches {	-- Klinisk TNM etter ferdig primærutredning og før primærbehandling
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0402] occurrences matches {0..1} matches {	-- cT
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+													ELEMENT[at0403] occurrences matches {0..1} matches {	-- cN
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+													ELEMENT[at0404] occurrences matches {0..1} matches {	-- cM
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0022] occurrences matches {0..1} matches {	-- Sykdomsutbredelse ved utredning av lokalt residiv
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0026] occurrences matches {0..1} matches {	-- I anastomosen?
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0208, 	-- Ja
+															at0209]	-- Nei
+														}
+													}
+												}
+											}
+											CLUSTER[at0410] occurrences matches {0..1} matches {	-- Utredningsmetode
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0488] occurrences matches {0..*} matches {	-- Utredningsmetode
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0489, 	-- Biopsi 
+																	at0490, 	-- Polypectomi 
+																	at0491, 	-- Colo-/rectoskopi 
+																	at0492, 	-- Rtg colon 
+																	at0493, 	-- MR
+																	at0494, 	-- Ct abdomen 
+																	at0495, 	-- Colografi (CT) 
+																	at0496, 	-- Ultralyd 
+																	at0497, 	-- Annet
+																	at0498]	-- Ukjent 
+																}
+															}
+														}
+													}
+													ELEMENT[at0449] occurrences matches {0..1} matches {	-- Spesifiser
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+											ELEMENT[at0027] occurrences matches {0..1} matches {	-- Dato lokalt residiv/progresjon ble bekreftet
+												value matches {
+													DV_DATE matches {
+														value matches {yyyy-mm-dd}
+													}
+												}
+											}
+											ELEMENT[at0412] occurrences matches {0..1} matches {	-- Er regionale lymfeknutemetastaser påvist(N-sykdom)?
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0417, 	-- Ja
+															at0418, 	-- Nei
+															at0419]	-- Ikke undersøkt
+														}
+													}
+												}
+											}
+											CLUSTER[at0556] occurrences matches {0..1} matches {	-- N-Sykdom
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0834] occurrences matches {0..*} matches {	-- N-status Colon
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0840, 	-- N1 - Metastase til 1-3 regionale lymfeknuter
+																	at0842]	-- N2 - Metastase til 4 eller flere regionale lymfeknuter
+																}
+															}
+														}
+													}
+													ELEMENT[at0835] occurrences matches {0..*} matches {	-- N-status Rectum
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0852, 	-- N1a - Metastase til 1 regional lymfeknute
+																	at0854, 	-- N1b - Metastase til 2-3 regionale lymfeknuter
+																	at0856, 	-- N1c - Tumorknute(r) (satelitt(er)) i subserosa eller i ikke-peritonealisert pericolisk bløtvev uten regional(e) lymfeknutemetastase(r)
+																	at0858]	-- N2 - Metastase til 4 eller flere regionale lymfeknuter
+																}
+															}
+														}
+													}
+													CLUSTER[at0618] occurrences matches {0..1} matches {	-- Utredningsmetode
+														items cardinality matches {1..*; unordered} matches {
+															ELEMENT[at0780] occurrences matches {0..*} matches {	-- Utredningsmetode
+																value matches {
+																	DV_CODED_TEXT matches {
+																		defining_code matches {
+																			[local::
+																			at0781, 	-- Ultralyd
+																			at0783, 	-- CT
+																			at0785, 	-- MR
+																			at0787, 	-- Cytologi
+																			at0789, 	-- Biopsi
+																			at0791, 	-- Annet
+																			at0793]	-- Ukjent
+																		}
+																	}
+																}
+															}
+															ELEMENT[at0625] occurrences matches {0..1} matches {	-- Spesifiser
+																value matches {
+																	DV_TEXT matches {*}
+																}
+															}
+														}
+													}
+												}
+											}
+											ELEMENT[at0627] occurrences matches {0..1} matches {	-- Er fjernmetastaser påvist, inkludert lymfeknutemetastaser utenfor regionalt område (M-sykdom)?
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0662, 	-- Ja
+															at0663, 	-- Nei
+															at0664]	-- Ikke undersøkt
+														}
+													}
+												}
+											}
+											CLUSTER[at0628] occurrences matches {0..1} matches {	-- Fjernmetastaser
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0629] occurrences matches {0..*} matches {	-- Lokalisasjon av fjernmetastaser
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0655, 	-- Lever
+																	at0656, 	-- Lunge
+																	at0657, 	-- Peritoneum/peritoneal carcinomatose
+																	at0658, 	-- Skjelett
+																	at0659, 	-- Hjerne
+																	at0660, 	-- Lymfeknuter utenfor regionalt område
+																	at0661]	-- Annen lokalisasjon
+																}
+															}
+														}
+													}
+													ELEMENT[at0630] occurrences matches {0..1} matches {	-- Spesifiser
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+													CLUSTER[at0631] occurrences matches {0..1} matches {	-- Utredningsmetode for fjernmetastaser
+														items cardinality matches {1..*; unordered} matches {
+															ELEMENT[at0795] occurrences matches {0..*} matches {	-- Utredningsmetode for fjernmetastaser
+																value matches {
+																	DV_CODED_TEXT matches {
+																		defining_code matches {
+																			[local::
+																			at0796, 	-- Ultralyd
+																			at0798, 	-- CT
+																			at0800, 	-- MR
+																			at0802, 	-- PET
+																			at0804, 	-- Rtg thorax
+																			at0806, 	-- Cytologi
+																			at0808, 	-- Biopsi
+																			at0810, 	-- Annet
+																			at0812]	-- Ukjent
+																		}
+																	}
+																}
+															}
+															ELEMENT[at0640] occurrences matches {0..1} matches {	-- Spesifiser
+																value matches {
+																	DV_TEXT matches {*}
+																}
+															}
+															ELEMENT[at0641] occurrences matches {0..1} matches {	-- Dato for utredning av metastaser
+																value matches {
+																	DV_DATE matches {
+																		value matches {yyyy-mm-dd}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0110] occurrences matches {0..*} matches {	-- Sykdomsutbredelse ved utredning av metastase(r)
+										items cardinality matches {1..*; unordered} matches {
+											CLUSTER[at0391] occurrences matches {0..*} matches {	-- Metastaser lokalisasjon
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0514] occurrences matches {0..*} matches {	-- Metastaser lokalisasjon
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0515, 	-- Lever
+																	at0516, 	-- Lunge
+																	at0517, 	-- Peritoneum/peritoneal caecinomatose 
+																	at0518, 	-- Skjelett
+																	at0519, 	-- Hjerne 
+																	at0520, 	-- Lymfeknuter utenfor regionalt området
+																	at0521]	-- Annen lokalisasjon 
+																}
+															}
+														}
+													}
+													ELEMENT[at0400] occurrences matches {0..1} matches {	-- Spesifiser
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+											CLUSTER[at0359] occurrences matches {0..*} matches {	-- Utredningsmetode
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0814] occurrences matches {0..*} matches {	-- Utredningsmetode
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0815, 	-- Ultralyd
+																	at0817, 	-- CT
+																	at0819, 	-- MR
+																	at0821, 	-- PET
+																	at0823, 	-- Rtg thorax
+																	at0825, 	-- Cytologi
+																	at0827, 	-- Biopsi
+																	at0829, 	-- Annet
+																	at0831]	-- Ukjent
+																}
+															}
+														}
+													}
+													ELEMENT[at0373] occurrences matches {0..1} matches {	-- Spesifiser
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+											ELEMENT[at0427] occurrences matches {0..*} matches {	-- Dato for utredning av metastaser
+												value matches {
+													DV_DATE matches {
+														value matches {yyyy-mm-dd}
+													}
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0859] occurrences matches {0..*} matches {	-- CEA
+										include
+											archetype_id/value matches {/.*/}
+									}
+									allow_archetype CLUSTER[at0860] occurrences matches {0..*} matches {	-- ECOG funksjonsstatus
+										include
+											archetype_id/value matches {/.*/}
+									}
+									allow_archetype CLUSTER[at0562] occurrences matches {0..*} matches {	-- Patologilaboratorium 
+										include
+											archetype_id/value matches {/.*/}
+									}
+									CLUSTER[at0861] occurrences matches {0..1} matches {	-- Oppfølging/tiltak
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0054] occurrences matches {0..1} matches {	-- Oppfølging/tiltak
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0290, 	-- Direkte til reseksjon
+															at0291, 	-- Forbehandling før planlagt reseksjon
+															at0292, 	-- Palliativ, tumorrettet behandling (onkolog)
+															at0293, 	-- Palliativ, kirurgisk behandling (eksklusiv reseksjon) 
+															at0294, 	-- Kun symptomlindrende behandling/Ingen tumorrettet behandling
+															at0423, 	-- Ikke avklart
+															at0424]	-- Ukjent
+														}
+													}
+												}
+											}
+											ELEMENT[at0055] occurrences matches {0..1} matches {	-- Hvor skjer neste trinn i behandlingen
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0300, 	-- Eget sykehus
+															at0301, 	-- Onkologisk avdeling annet sykehus
+															at0302, 	-- Kirurgisk avdeling annet sykehus
+															at0303]	-- Primærhelsetjenesten
+														}
+													}
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0563] occurrences matches {0..*} matches {	-- Melder
+										include
+											archetype_id/value matches {/.*/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"Kreftmelding kolorektalkreft utredning">
+					description = <"Kreftmelding utredning arketypen. ">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0015"] = <
+					text = <" Dato sykdommen ble bekreftet">
+					description = <" Dato sykdommen ble bekreftet.">
+				>
+				["at0022"] = <
+					text = <"Sykdomsutbredelse ved utredning av lokalt residiv">
+					description = <"Sykdomsutbredelse ved utredning av lokalt residiv">
+				>
+				["at0026"] = <
+					text = <"I anastomosen?">
+					description = <"Anastomosen">
+				>
+				["at0027"] = <
+					text = <"Dato lokalt residiv/progresjon ble bekreftet">
+					description = <"Dato lokalt residiv/progresjon ble bekreftet">
+				>
+				["at0054"] = <
+					text = <"Oppfølging/tiltak">
+					description = <"Oppfølging/tiltak">
+				>
+				["at0055"] = <
+					text = <"Hvor skjer neste trinn i behandlingen">
+					description = <"Hvor skjer neste trinn i behandlingen">
+				>
+				["at0110"] = <
+					text = <"Sykdomsutbredelse ved utredning av metastase(r)">
+					description = <"Sykdomsutbredelse ved utredning av metastase(r)">
+				>
+				["at0208"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0209"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0290"] = <
+					text = <"Direkte til reseksjon">
+					description = <"*">
+				>
+				["at0291"] = <
+					text = <"Forbehandling før planlagt reseksjon">
+					description = <"*">
+				>
+				["at0292"] = <
+					text = <"Palliativ, tumorrettet behandling (onkolog)">
+					description = <"*">
+				>
+				["at0293"] = <
+					text = <"Palliativ, kirurgisk behandling (eksklusiv reseksjon) ">
+					description = <"*">
+				>
+				["at0294"] = <
+					text = <"Kun symptomlindrende behandling/Ingen tumorrettet behandling">
+					description = <"*">
+				>
+				["at0300"] = <
+					text = <"Eget sykehus">
+					description = <"*">
+				>
+				["at0301"] = <
+					text = <"Onkologisk avdeling annet sykehus">
+					description = <"*">
+				>
+				["at0302"] = <
+					text = <"Kirurgisk avdeling annet sykehus">
+					description = <"*">
+				>
+				["at0303"] = <
+					text = <"Primærhelsetjenesten">
+					description = <"*">
+				>
+				["at0337"] = <
+					text = <"Funn i utredning">
+					description = <"Angir funn i utredning.">
+				>
+				["at0344"] = <
+					text = <"Er regionale lymfeknutemetastaser påvist (N-sykdom)?">
+					description = <"Angit om regionale lymfeknutemetastaser er påvist (N-sykdom)">
+				>
+				["at0345"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0346"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0347"] = <
+					text = <"Ikke undersøkt">
+					description = <"*">
+				>
+				["at0348"] = <
+					text = <"Er fjernmetastaser påvist, inkludert lymfeknutemetastaser utenfor regionalt område (M-sykdom)?">
+					description = <"Angir om fjernmetastaser påvist, inkludert lymfeknutemetastaser utenfor regionalt område (M-sykdom)">
+				>
+				["at0349"] = <
+					text = <"Tumor (T-sykdom)">
+					description = <"Tumor status. ">
+				>
+				["at0359"] = <
+					text = <"Utredningsmetode">
+					description = <"Utredningsmetode">
+				>
+				["at0373"] = <
+					text = <"Spesifiser">
+					description = <"Spesifiser dersom \"annet\" valgt. ">
+				>
+				["at0377"] = <
+					text = <"N-sykdom">
+					description = <"N sykdom cluster. ">
+				>
+				["at0383"] = <
+					text = <"Antatt maligne lymfeknuter på bekkenvegg/ utenfor MRF(mesorectal fascie)">
+					description = <"Antatt maligne lymfeknuter på bekkenvegg/ utenfor MRF(mesorectal fascie)">
+				>
+				["at0384"] = <
+					text = <"Ekstramural karinnvekst">
+					description = <"Ekstramural karinnvekst">
+				>
+				["at0385"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0386"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0387"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0388"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0389"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0390"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0391"] = <
+					text = <"Metastaser lokalisasjon">
+					description = <"Metastaser lokalisasjon">
+				>
+				["at0400"] = <
+					text = <"Spesifiser">
+					description = <"Spesifiser dersom \"annen lokalisasjon\" valgt.">
+				>
+				["at0401"] = <
+					text = <"Klinisk TNM etter ferdig primærutredning og før primærbehandling">
+					description = <"Klinisk TNM etter ferdig primærutredning og før primærbehandling">
+				>
+				["at0402"] = <
+					text = <"cT">
+					description = <"cT score. ">
+				>
+				["at0403"] = <
+					text = <"cN">
+					description = <"cN score. ">
+				>
+				["at0404"] = <
+					text = <"cM">
+					description = <"cM score. ">
+				>
+				["at0408"] = <
+					text = <"Ukjent">
+					description = <"Ukjent.">
+				>
+				["at0410"] = <
+					text = <"Utredningsmetode">
+					description = <"Utredningsmetode cluster. ">
+				>
+				["at0411"] = <
+					text = <"Utredningsmetode">
+					description = <"Utredningsmetode for tumor. ">
+				>
+				["at0412"] = <
+					text = <"Er regionale lymfeknutemetastaser påvist(N-sykdom)?">
+					description = <"Angir om regionale lymfeknutemetastaser er påvist(N-sykdom)">
+				>
+				["at0413"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0414"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0415"] = <
+					text = <"Ikke undersøkt">
+					description = <"*">
+				>
+				["at0417"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0418"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0419"] = <
+					text = <"Ikke undersøkt">
+					description = <"*">
+				>
+				["at0423"] = <
+					text = <"Ikke avklart">
+					description = <"*">
+				>
+				["at0424"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0427"] = <
+					text = <"Dato for utredning av metastaser">
+					description = <"Dato for utredning av metastaser">
+				>
+				["at0438"] = <
+					text = <"Spesifiser">
+					description = <"Spesifiser">
+				>
+				["at0449"] = <
+					text = <"Spesifiser">
+					description = <"Spesifiser dersom \"annet\" valgt. ">
+				>
+				["at0450"] = <
+					text = <"Primærtumor (med eller uten metastase(r))">
+					description = <"*">
+				>
+				["at0451"] = <
+					text = <"Lokal residiv (med eller uten metastase(r))">
+					description = <"*">
+				>
+				["at0452"] = <
+					text = <"Kun metastase(r)">
+					description = <"*">
+				>
+				["at0458"] = <
+					text = <"Utredningsmetode">
+					description = <"Utredningsmetode for N-sykdom">
+				>
+				["at0466"] = <
+					text = <"Spesifiser">
+					description = <"Spesifiser dersom \"annet\" valgt. ">
+				>
+				["at0488"] = <
+					text = <"Utredningsmetode">
+					description = <"Utredningsmetode">
+				>
+				["at0489"] = <
+					text = <"Biopsi ">
+					description = <"*">
+				>
+				["at0490"] = <
+					text = <"Polypectomi ">
+					description = <"*">
+				>
+				["at0491"] = <
+					text = <"Colo-/rectoskopi ">
+					description = <"*">
+				>
+				["at0492"] = <
+					text = <"Rtg colon ">
+					description = <"*">
+				>
+				["at0493"] = <
+					text = <"MR">
+					description = <"*">
+				>
+				["at0494"] = <
+					text = <"Ct abdomen ">
+					description = <"*">
+				>
+				["at0495"] = <
+					text = <"Colografi (CT) ">
+					description = <"*">
+				>
+				["at0496"] = <
+					text = <"Ultralyd ">
+					description = <"*">
+				>
+				["at0497"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0498"] = <
+					text = <"Ukjent ">
+					description = <"*">
+				>
+				["at0514"] = <
+					text = <"Metastaser lokalisasjon">
+					description = <"Metastaser lokalisasjon">
+				>
+				["at0515"] = <
+					text = <"Lever">
+					description = <"*">
+				>
+				["at0516"] = <
+					text = <"Lunge">
+					description = <"*">
+				>
+				["at0517"] = <
+					text = <"Peritoneum/peritoneal caecinomatose ">
+					description = <"*">
+				>
+				["at0518"] = <
+					text = <"Skjelett">
+					description = <"*">
+				>
+				["at0519"] = <
+					text = <"Hjerne ">
+					description = <"*">
+				>
+				["at0520"] = <
+					text = <"Lymfeknuter utenfor regionalt området">
+					description = <"*">
+				>
+				["at0521"] = <
+					text = <"Annen lokalisasjon ">
+					description = <"*">
+				>
+				["at0536"] = <
+					text = <"Lokalisasjon av primærtumor">
+					description = <"*">
+				>
+				["at0537"] = <
+					text = <"Sykdomsutbredelse etter ferdig primærutredning og  før primærbehandling">
+					description = <"Sykdomsutbredelse etter ferdig primærutredning og  før primærbehandling.">
+				>
+				["at0538"] = <
+					text = <"Fjernmetastaser">
+					description = <"Fjernmetastaser cluster. ">
+				>
+				["at0545"] = <
+					text = <"Lokalisasjon av fjernmetastaser">
+					description = <"Angir lokalisasjon av fjernmetastaser. ">
+				>
+				["at0546"] = <
+					text = <"Utredsningsmetode for fjernmetastaser">
+					description = <"Utredningsmetode for fjernmetastaser. ">
+				>
+				["at0550"] = <
+					text = <"Spesifiser">
+					description = <"Spesifiser dersom \"annet\" er valgt. ">
+				>
+				["at0551"] = <
+					text = <"Dato for utredning av metastaser">
+					description = <"Dato for utredning av metastaser. ">
+				>
+				["at0556"] = <
+					text = <"N-Sykdom">
+					description = <"N-sykdom cluster">
+				>
+				["at0562"] = <
+					text = <"Patologilaboratorium ">
+					description = <"Patologilaboratorium  [Cluster]">
+				>
+				["at0563"] = <
+					text = <"Melder">
+					description = <"Melder [Cluster]">
+				>
+				["at0564"] = <
+					text = <"Antatt avstand fra tumor/malignsuspekt lymfeknute/tumordeposit til mesorectale fascie, unntatt peritoneum (mm)">
+					description = <"Antatt avstand fra tumor/malignsuspekt lymfeknute/tumordeposit til mesorectale fascie, unntatt peritoneum (mm)">
+				>
+				["at0596"] = <
+					text = <"Lever">
+					description = <"*">
+				>
+				["at0598"] = <
+					text = <"Lunge">
+					description = <"*">
+				>
+				["at0600"] = <
+					text = <"Peritoneum/peritoneal carcinomatose">
+					description = <"*">
+				>
+				["at0602"] = <
+					text = <"Skjelett">
+					description = <"*">
+				>
+				["at0604"] = <
+					text = <"Hjerne">
+					description = <"*">
+				>
+				["at0606"] = <
+					text = <"Lymfeknuter utenfor regionalt område">
+					description = <"*">
+				>
+				["at0608"] = <
+					text = <"Annen lokalisasjon">
+					description = <"*">
+				>
+				["at0610"] = <
+					text = <"Spesifiser">
+					description = <"Spesifiser dersom \"annen\" valgt. ">
+				>
+				["at0618"] = <
+					text = <"Utredningsmetode">
+					description = <"Utredningsmetode cluster">
+				>
+				["at0625"] = <
+					text = <"Spesifiser">
+					description = <"Spesifiser dersom \"annet\" valgt. ">
+				>
+				["at0627"] = <
+					text = <"Er fjernmetastaser påvist, inkludert lymfeknutemetastaser utenfor regionalt område (M-sykdom)?">
+					description = <"Angir om fjernmetastaser er påvist, inkludert lymfeknutemetastaser utenfor regionalt område (M-sykdom)">
+				>
+				["at0628"] = <
+					text = <"Fjernmetastaser">
+					description = <"Fjernmetastaser cluster. ">
+				>
+				["at0629"] = <
+					text = <"Lokalisasjon av fjernmetastaser">
+					description = <"Lokalisasjon av fjernmetastaser">
+				>
+				["at0630"] = <
+					text = <"Spesifiser">
+					description = <"Spesifiser dersom \"annen lokalisasjon\" valgt. ">
+				>
+				["at0631"] = <
+					text = <"Utredningsmetode for fjernmetastaser">
+					description = <"Utredningsmetode for fjernmetastaser">
+				>
+				["at0640"] = <
+					text = <"Spesifiser">
+					description = <"Spesifiser dersom \"annet\" valgt. ">
+				>
+				["at0641"] = <
+					text = <"Dato for utredning av metastaser">
+					description = <"Dato for utredning av metastaser">
+				>
+				["at0655"] = <
+					text = <"Lever">
+					description = <"*">
+				>
+				["at0656"] = <
+					text = <"Lunge">
+					description = <"*">
+				>
+				["at0657"] = <
+					text = <"Peritoneum/peritoneal carcinomatose">
+					description = <"*">
+				>
+				["at0658"] = <
+					text = <"Skjelett">
+					description = <"*">
+				>
+				["at0659"] = <
+					text = <"Hjerne">
+					description = <"*">
+				>
+				["at0660"] = <
+					text = <"Lymfeknuter utenfor regionalt område">
+					description = <"*">
+				>
+				["at0661"] = <
+					text = <"Annen lokalisasjon">
+					description = <"*">
+				>
+				["at0662"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0663"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0664"] = <
+					text = <"Ikke undersøkt">
+					description = <"*">
+				>
+				["at0665"] = <
+					text = <"Tumor Colon">
+					description = <"Tumor colon">
+				>
+				["at0666"] = <
+					text = <"TX - Ingen informasjon">
+					description = <"*">
+				>
+				["at0668"] = <
+					text = <"T0 - Tumor ikke påvist">
+					description = <"*">
+				>
+				["at0670"] = <
+					text = <"Tis - Carsinoma in situ">
+					description = <"*">
+				>
+				["at0672"] = <
+					text = <"T1 - Tumor vokser inn i submucosa">
+					description = <"*">
+				>
+				["at0674"] = <
+					text = <"T2 - Tumor vokser inn i muscularis propria">
+					description = <"*">
+				>
+				["at0676"] = <
+					text = <"T3 - Tumor vokser inn i subserosa eller ikke-peritonealisert pericolisk vev">
+					description = <"*">
+				>
+				["at0678"] = <
+					text = <"T4 - Tumor vokser direkte inn i andre organer eller strukturer">
+					description = <"*">
+				>
+				["at0680"] = <
+					text = <"Tumor Rectum">
+					description = <"Tumor rectum">
+				>
+				["at0681"] = <
+					text = <"TX - Ingen informasjon">
+					description = <"*">
+				>
+				["at0683"] = <
+					text = <"T0 - Tumor ikke påvist">
+					description = <"*">
+				>
+				["at0685"] = <
+					text = <"Tis - Carsinoma in situ">
+					description = <"*">
+				>
+				["at0687"] = <
+					text = <"T1 - Tumor vokser inn i submucosa">
+					description = <"*">
+				>
+				["at0689"] = <
+					text = <"T2 - Tumor vokser inn i muscularis propria">
+					description = <"*">
+				>
+				["at0691"] = <
+					text = <"T3 - Tumor vokser inn i subserosa eller ikke-peritonealisert pericolisk vev">
+					description = <"*">
+				>
+				["at0693"] = <
+					text = <"T4a - Tumor perforerer viscerale peritoneum">
+					description = <"*">
+				>
+				["at0695"] = <
+					text = <"T4b - Tumor vokser direkte inn i andre organer eller strukturer">
+					description = <"*">
+				>
+				["at0697"] = <
+					text = <"Utredningsmetode">
+					description = <"Utredningsmetode">
+				>
+				["at0698"] = <
+					text = <"Biopsi">
+					description = <"*">
+				>
+				["at0700"] = <
+					text = <"Polypectomi">
+					description = <"*">
+				>
+				["at0702"] = <
+					text = <"Colo-/rectoskopi">
+					description = <"*">
+				>
+				["at0704"] = <
+					text = <"Rtg colon">
+					description = <"*">
+				>
+				["at0706"] = <
+					text = <"MR">
+					description = <"*">
+				>
+				["at0708"] = <
+					text = <"CT abdomen">
+					description = <"*">
+				>
+				["at0710"] = <
+					text = <"Colografi (CT)">
+					description = <"*">
+				>
+				["at0712"] = <
+					text = <"Ultralyd">
+					description = <"*">
+				>
+				["at0714"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0716"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0732"] = <
+					text = <"Utredningsmetode">
+					description = <"Angir utredningsmetode ">
+				>
+				["at0733"] = <
+					text = <"Ultralyd">
+					description = <"*">
+				>
+				["at0735"] = <
+					text = <"CT">
+					description = <"*">
+				>
+				["at0737"] = <
+					text = <"MR">
+					description = <"*">
+				>
+				["at0739"] = <
+					text = <"Cytologi">
+					description = <"*">
+				>
+				["at0741"] = <
+					text = <"Biopsi">
+					description = <"*">
+				>
+				["at0743"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0745"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0747"] = <
+					text = <"Utredsningsmetode for fjernmetastaser">
+					description = <"*">
+				>
+				["at0748"] = <
+					text = <"Ultralyd">
+					description = <"*">
+				>
+				["at0750"] = <
+					text = <"CT">
+					description = <"*">
+				>
+				["at0752"] = <
+					text = <"MR">
+					description = <"*">
+				>
+				["at0754"] = <
+					text = <"PET">
+					description = <"*">
+				>
+				["at0756"] = <
+					text = <"Rtg thorax">
+					description = <"*">
+				>
+				["at0758"] = <
+					text = <"Cytologi">
+					description = <"*">
+				>
+				["at0760"] = <
+					text = <"Biopsi">
+					description = <"*">
+				>
+				["at0762"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0764"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0780"] = <
+					text = <"Utredningsmetode">
+					description = <"Utredningsmetode. ">
+				>
+				["at0781"] = <
+					text = <"Ultralyd">
+					description = <"*">
+				>
+				["at0783"] = <
+					text = <"CT">
+					description = <"*">
+				>
+				["at0785"] = <
+					text = <"MR">
+					description = <"*">
+				>
+				["at0787"] = <
+					text = <"Cytologi">
+					description = <"*">
+				>
+				["at0789"] = <
+					text = <"Biopsi">
+					description = <"*">
+				>
+				["at0791"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0793"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0795"] = <
+					text = <"Utredningsmetode for fjernmetastaser">
+					description = <"*">
+				>
+				["at0796"] = <
+					text = <"Ultralyd">
+					description = <"*">
+				>
+				["at0798"] = <
+					text = <"CT">
+					description = <"*">
+				>
+				["at0800"] = <
+					text = <"MR">
+					description = <"*">
+				>
+				["at0802"] = <
+					text = <"PET">
+					description = <"*">
+				>
+				["at0804"] = <
+					text = <"Rtg thorax">
+					description = <"*">
+				>
+				["at0806"] = <
+					text = <"Cytologi">
+					description = <"*">
+				>
+				["at0808"] = <
+					text = <"Biopsi">
+					description = <"*">
+				>
+				["at0810"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0812"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0814"] = <
+					text = <"Utredningsmetode">
+					description = <"*">
+				>
+				["at0815"] = <
+					text = <"Ultralyd">
+					description = <"*">
+				>
+				["at0817"] = <
+					text = <"CT">
+					description = <"*">
+				>
+				["at0819"] = <
+					text = <"MR">
+					description = <"*">
+				>
+				["at0821"] = <
+					text = <"PET">
+					description = <"*">
+				>
+				["at0823"] = <
+					text = <"Rtg thorax">
+					description = <"*">
+				>
+				["at0825"] = <
+					text = <"Cytologi">
+					description = <"*">
+				>
+				["at0827"] = <
+					text = <"Biopsi">
+					description = <"*">
+				>
+				["at0829"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0831"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0832"] = <
+					text = <"N-status Colon">
+					description = <"N status colon">
+				>
+				["at0833"] = <
+					text = <"N-status Rectum">
+					description = <"N status rectum">
+				>
+				["at0834"] = <
+					text = <"N-status Colon">
+					description = <"N status colon">
+				>
+				["at0835"] = <
+					text = <"N-status Rectum">
+					description = <"N status rectum">
+				>
+				["at0836"] = <
+					text = <"N1 - Metastase til 1-3 regionale lymfeknuter">
+					description = <"*">
+				>
+				["at0838"] = <
+					text = <"N2 - Metastase til 4 eller flere regionale lymfeknuter">
+					description = <"*">
+				>
+				["at0840"] = <
+					text = <"N1 - Metastase til 1-3 regionale lymfeknuter">
+					description = <"*">
+				>
+				["at0842"] = <
+					text = <"N2 - Metastase til 4 eller flere regionale lymfeknuter">
+					description = <"*">
+				>
+				["at0844"] = <
+					text = <"N1a - Metastase til 1 regional lymfeknute">
+					description = <"*">
+				>
+				["at0846"] = <
+					text = <"N1b - Metastase til 2-3 regionale lymfeknuter">
+					description = <"*">
+				>
+				["at0848"] = <
+					text = <"N1c - Tumorknute(r) (satelitt(er)) i subserosa eller i ikke-peritonealisert pericolisk bløtvev uten regional(e) lymfeknutemetastase(r)">
+					description = <"*">
+				>
+				["at0850"] = <
+					text = <"N2 - Metastase til 4 eller flere regionale lymfeknuter">
+					description = <"*">
+				>
+				["at0852"] = <
+					text = <"N1a - Metastase til 1 regional lymfeknute">
+					description = <"*">
+				>
+				["at0854"] = <
+					text = <"N1b - Metastase til 2-3 regionale lymfeknuter">
+					description = <"*">
+				>
+				["at0856"] = <
+					text = <"N1c - Tumorknute(r) (satelitt(er)) i subserosa eller i ikke-peritonealisert pericolisk bløtvev uten regional(e) lymfeknutemetastase(r)">
+					description = <"*">
+				>
+				["at0858"] = <
+					text = <"N2 - Metastase til 4 eller flere regionale lymfeknuter">
+					description = <"*">
+				>
+				["at0859"] = <
+					text = <"CEA">
+					description = <"CEA score  [Cluster]">
+				>
+				["at0860"] = <
+					text = <"ECOG funksjonsstatus">
+					description = <"ECOG funksjonsstatus  [Cluster]">
+				>
+				["at0861"] = <
+					text = <"Oppfølging/tiltak">
+					description = <"*">
+				>
+				["at0862"] = <
+					text = <"T1-T2 -Tumor vokser inn i submucosa eller muscularis propria">
+					description = <"*">
+				>
+			>
+		>
+	>

@@ -1,0 +1,3351 @@
+{
+  "templateId" : "kremt_crc_kirurgi_v2",
+  "version" : "2.3",
+  "defaultLanguage" : "nb",
+  "languages" : [ "nb" ],
+  "tree" : {
+    "id" : "kreftmelding_kolorektalkreft_dips",
+    "name" : "Kreftmelding kolorektalkreft dips",
+    "localizedName" : "Kreftmelding kolorektalkreft dips",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.kreftmelding_kolorektalkreft_dips.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "nb" : "Kreftmelding kolorektalkreft dips"
+    },
+    "localizedDescriptions" : {
+      "nb" : "unknown"
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "klar_til_sending",
+        "name" : "Klar til sending",
+        "localizedName" : "Klar til sending",
+        "rmType" : "DV_BOOLEAN",
+        "nodeId" : "at0003",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Klar til sending"
+        },
+        "localizedDescriptions" : {
+          "nb" : "*"
+        },
+        "aqlPath" : "/context/other_context[at0001]/items[at0003]/value",
+        "inputs" : [ {
+          "type" : "BOOLEAN"
+        } ]
+      }, {
+        "id" : "meldingstype",
+        "name" : "Meldingstype",
+        "localizedName" : "Meldingstype",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Meldingstype"
+        },
+        "localizedDescriptions" : {
+          "nb" : "*"
+        },
+        "aqlPath" : "/context/other_context[at0001]/items[at0002]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "kolorektal_kreftmelding_for_kirurgi",
+      "name" : "Kolorektal kreftmelding for kirurgi",
+      "localizedName" : "Kolorektal kreftmelding for kirurgi",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Kolorektal kreftmelding for kirurgi"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Er laget for å dekke meldeskjema for kirurgi til kreftregisteret i DIPS ARENA. Denne arketypen er laget etter kravpekk dokumentasjon_colorectal_v3.0 fra kreftregisteret."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]",
+      "children" : [ {
+        "id" : "behandlingen_var_rettet_mot",
+        "name" : "Behandlingen var rettet mot",
+        "localizedName" : "Behandlingen var rettet mot",
+        "rmType" : "DV_CODED_TEXT",
+        "nodeId" : "at0004",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Behandlingen var rettet mot"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Hva er behandlingen rettet mot"
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "CODED_TEXT",
+          "list" : [ {
+            "value" : "at0005",
+            "label" : "Primærtumor (med eller uten metastase(r))",
+            "localizedLabels" : {
+              "nb" : "Primærtumor (med eller uten metastase(r))"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Inngrep rettet mot primærtumor og regionale lymfeknutemetastaser/\r\nfjernmetastaser når dette er gjort samtidig (samme dato)"
+            }
+          }, {
+            "value" : "at0006",
+            "label" : "Lokalt residiv (med eller uten metastase(r))",
+            "localizedLabels" : {
+              "nb" : "Lokalt residiv (med eller uten metastase(r))"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Inngrep rettet mot lokalt residiv og regionale lymfeknutemetastaser/\r\nfjernmetastaser når dette er gjort samtidig (samme dato)"
+            }
+          }, {
+            "value" : "at0007",
+            "label" : "Kun metastase(r)",
+            "localizedLabels" : {
+              "nb" : "Kun metastase(r)"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Innngrep rettet mot regionale lymfeknutemetastaser/fjernmetastaser, uten samtidig kirurgisk behandling av primærtumor eller lokalt residiv"
+            }
+          } ]
+        } ]
+      }, {
+        "id" : "lokalisasjon_av_primaertumor",
+        "name" : "Lokalisasjon av primaertumor",
+        "localizedName" : "Lokalisasjon av primaertumor",
+        "rmType" : "CLUSTER",
+        "nodeId" : "openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Lokalisasjon av primaertumor"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Cluster arketype som brukes i forbindelse med kolerekral kreftmelding. "
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]",
+        "children" : [ {
+          "id" : "lokalisajon",
+          "name" : "Lokalisajon",
+          "localizedName" : "Lokalisajon",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0001",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Lokalisajon"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Lokalisasjon av tumor "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]/items[at0001]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0002",
+              "label" : "Colon (C18-C19)",
+              "localizedLabels" : {
+                "nb" : "Colon (C18-C19)"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "termBindings" : {
+                "KREG-COLON" : {
+                  "value" : "[KREG-COLON::1]",
+                  "terminologyId" : "KREG-COLON"
+                }
+              }
+            }, {
+              "value" : "at0003",
+              "label" : "Rectum (C20)",
+              "localizedLabels" : {
+                "nb" : "Rectum (C20)"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "termBindings" : {
+                "KREG-COLON" : {
+                  "value" : "[KREG-COLON::2]",
+                  "terminologyId" : "KREG-COLON"
+                }
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "spesifiser_lokalisajon_colon",
+          "name" : "Spesifiser lokalisajon Colon",
+          "localizedName" : "Spesifiser lokalisajon Colon",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Spesifiser lokalisajon Colon"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Angir spesifikk lokalisasjon for Colon "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]/items[at0004]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0006",
+              "label" : "Cøkum (C18.0)",
+              "localizedLabels" : {
+                "nb" : "Cøkum (C18.0)"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "termBindings" : {
+                "KREG-COLON" : {
+                  "value" : "[KREG-COLON::180]",
+                  "terminologyId" : "KREG-COLON"
+                }
+              }
+            }, {
+              "value" : "at0007",
+              "label" : "Appendix (C18.1)",
+              "localizedLabels" : {
+                "nb" : "Appendix (C18.1)"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "termBindings" : {
+                "KREG-COLON" : {
+                  "value" : "[KREG-COLON::181]",
+                  "terminologyId" : "KREG-COLON"
+                }
+              }
+            }, {
+              "value" : "at0008",
+              "label" : "Ascendens (C18.2)",
+              "localizedLabels" : {
+                "nb" : "Ascendens (C18.2)"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "termBindings" : {
+                "KREG-COLON" : {
+                  "value" : "[KREG-COLON::182]",
+                  "terminologyId" : "KREG-COLON"
+                }
+              }
+            }, {
+              "value" : "at0009",
+              "label" : "Høyre fleksur (C18.3)",
+              "localizedLabels" : {
+                "nb" : "Høyre fleksur (C18.3)"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "termBindings" : {
+                "KREG-COLON" : {
+                  "value" : "[KREG-COLON::183]",
+                  "terminologyId" : "KREG-COLON"
+                }
+              }
+            }, {
+              "value" : "at0010",
+              "label" : "Transversum (C18.4)",
+              "localizedLabels" : {
+                "nb" : "Transversum (C18.4)"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "termBindings" : {
+                "KREG-COLON" : {
+                  "value" : "[KREG-COLON::184]",
+                  "terminologyId" : "KREG-COLON"
+                }
+              }
+            }, {
+              "value" : "at0011",
+              "label" : "Venstre fleksur (C18.5)",
+              "localizedLabels" : {
+                "nb" : "Venstre fleksur (C18.5)"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "termBindings" : {
+                "KREG-COLON" : {
+                  "value" : "[KREG-COLON::185]",
+                  "terminologyId" : "KREG-COLON"
+                }
+              }
+            }, {
+              "value" : "at0012",
+              "label" : "Descendens (C18.6)",
+              "localizedLabels" : {
+                "nb" : "Descendens (C18.6)"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "termBindings" : {
+                "KREG-COLON" : {
+                  "value" : "[KREG-COLON::186]",
+                  "terminologyId" : "KREG-COLON"
+                }
+              }
+            }, {
+              "value" : "at0013",
+              "label" : "Sigmoideum, ≥ 20 cm (C18.7)",
+              "localizedLabels" : {
+                "nb" : "Sigmoideum, ≥ 20 cm (C18.7)"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "termBindings" : {
+                "KREG-COLON" : {
+                  "value" : "[KREG-COLON::187]",
+                  "terminologyId" : "KREG-COLON"
+                }
+              }
+            }, {
+              "value" : "at0014",
+              "label" : "Tykktarm, overlappende (C18.8)",
+              "localizedLabels" : {
+                "nb" : "Tykktarm, overlappende (C18.8)"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "termBindings" : {
+                "KREG-COLON" : {
+                  "value" : "[KREG-COLON::188]",
+                  "terminologyId" : "KREG-COLON"
+                }
+              }
+            }, {
+              "value" : "at0015",
+              "label" : "Tykktarm uspesifisert (C18.9)",
+              "localizedLabels" : {
+                "nb" : "Tykktarm uspesifisert (C18.9)"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "termBindings" : {
+                "KREG-COLON" : {
+                  "value" : "[KREG-COLON::189]",
+                  "terminologyId" : "KREG-COLON"
+                }
+              }
+            }, {
+              "value" : "at0016",
+              "label" : "Rectosigmoid ≥ 16 og < 20 cm (C19)",
+              "localizedLabels" : {
+                "nb" : "Rectosigmoid ≥ 16 og < 20 cm (C19)"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "termBindings" : {
+                "KREG-COLON" : {
+                  "value" : "[KREG-COLON::199]",
+                  "terminologyId" : "KREG-COLON"
+                }
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "angi_avstand_fra_analåpning_til_nedre_kant_av_tumor_målt_på_stivt_skop",
+          "name" : "Angi avstand fra analåpning til nedre kant av tumor (målt på stivt skop)",
+          "localizedName" : "Angi avstand fra analåpning til nedre kant av tumor (målt på stivt skop)",
+          "rmType" : "DV_QUANTITY",
+          "nodeId" : "at0026",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Angi avstand fra analåpning til nedre kant av tumor (målt på stivt skop)"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Angir avstand fra analåpning til nedre kant av tumor (målt på stivt skop)"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]/items[at0026]/value",
+          "inputs" : [ {
+            "suffix" : "magnitude",
+            "type" : "DECIMAL",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0.0,
+                "maxOp" : "<=",
+                "max" : 99.0
+              },
+              "precision" : {
+                "minOp" : ">=",
+                "min" : 1,
+                "maxOp" : "<=",
+                "max" : 1
+              }
+            }
+          }, {
+            "suffix" : "unit",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "cm",
+              "label" : "cm",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0,
+                  "maxOp" : "<=",
+                  "max" : 99.0
+                },
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 1,
+                  "maxOp" : "<=",
+                  "max" : 1
+                }
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "ukjent",
+          "name" : "Ukjent",
+          "localizedName" : "Ukjent",
+          "rmType" : "DV_BOOLEAN",
+          "nodeId" : "at0033",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Ukjent"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Avstand ukjent. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]/items[at0033]/value",
+          "inputs" : [ {
+            "type" : "BOOLEAN"
+          } ]
+        }, {
+          "id" : "avstand_fra_øvre_kant_av_m.puborektalis_til_nedre_kant_av_tumor_målt_ved_mr",
+          "name" : "Avstand fra øvre kant av M.puborektalis til nedre kant av tumor (målt ved MR)",
+          "localizedName" : "Avstand fra øvre kant av M.puborektalis til nedre kant av tumor (målt ved MR)",
+          "rmType" : "DV_QUANTITY",
+          "nodeId" : "at0034",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Avstand fra øvre kant av M.puborektalis til nedre kant av tumor (målt ved MR)"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Angir avstand fra øvre kant av M.puborektalis til nedre kant av tumor (målt ved MR)"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]/items[at0034]/value",
+          "inputs" : [ {
+            "suffix" : "magnitude",
+            "type" : "DECIMAL",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0.0,
+                "maxOp" : "<=",
+                "max" : 99.0
+              },
+              "precision" : {
+                "minOp" : ">=",
+                "min" : 2,
+                "maxOp" : "<=",
+                "max" : 2
+              }
+            }
+          }, {
+            "suffix" : "unit",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "cm",
+              "label" : "cm",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0,
+                  "maxOp" : "<=",
+                  "max" : 99.0
+                },
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 2,
+                  "maxOp" : "<=",
+                  "max" : 2
+                }
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "ukjent2",
+          "name" : "Ukjent",
+          "localizedName" : "Ukjent",
+          "rmType" : "DV_BOOLEAN",
+          "nodeId" : "at0032",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Ukjent"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Avstand ukjent. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]/items[at0032]/value",
+          "inputs" : [ {
+            "type" : "BOOLEAN"
+          } ]
+        }, {
+          "id" : "klinisk_sikker_kreft",
+          "name" : "Klinisk sikker kreft",
+          "localizedName" : "Klinisk sikker kreft",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0021",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Klinisk sikker kreft"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Angir informasjon om kreft er klinisk sikker. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]/items[at0021]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0022",
+              "label" : "Ja",
+              "localizedLabels" : {
+                "nb" : "Ja"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0023",
+              "label" : "Usikker",
+              "localizedLabels" : {
+                "nb" : "Usikker"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            } ]
+          } ]
+        } ]
+      }, {
+        "id" : "forbehandling",
+        "name" : "Forbehandling",
+        "localizedName" : "Forbehandling",
+        "rmType" : "CLUSTER",
+        "nodeId" : "at0010",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Forbehandling"
+        },
+        "localizedDescriptions" : {
+          "nb" : "forbehandling"
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0010]",
+        "children" : [ {
+          "id" : "forbehandling",
+          "name" : "Forbehandling",
+          "localizedName" : "Forbehandling",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0259",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "nb" : "Forbehandling"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Forbehandling pasienten har mottat"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0010]/items[at0259]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0260",
+              "label" : "Ingen",
+              "localizedLabels" : {
+                "nb" : "Ingen"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0261",
+              "label" : "Kjemoterapi",
+              "localizedLabels" : {
+                "nb" : "Kjemoterapi"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0262",
+              "label" : "Strålebehandling",
+              "localizedLabels" : {
+                "nb" : "Strålebehandling"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0263",
+              "label" : "Strålebehandling med kjemoterapi",
+              "localizedLabels" : {
+                "nb" : "Strålebehandling med kjemoterapi"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0264",
+              "label" : "Avlastende stomi",
+              "localizedLabels" : {
+                "nb" : "Avlastende stomi"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0265",
+              "label" : "Stenting",
+              "localizedLabels" : {
+                "nb" : "Stenting"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0266",
+              "label" : "Annet",
+              "localizedLabels" : {
+                "nb" : "Annet"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0267",
+              "label" : "Ukjent",
+              "localizedLabels" : {
+                "nb" : "Ukjent"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "spesifiser_forbehandling_annet",
+          "name" : "Spesifiser forbehandling annet",
+          "localizedName" : "Spesifiser forbehandling annet",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0022",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Spesifiser forbehandling annet"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Spesifiser annen forbehandling"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0010]/items[at0022]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        } ]
+      }, {
+        "id" : "siktemål_for_behandlingen_preoperativ_intensjon",
+        "name" : "Siktemål for behandlingen/preoperativ intensjon",
+        "localizedName" : "Siktemål for behandlingen/preoperativ intensjon",
+        "rmType" : "CLUSTER",
+        "nodeId" : "at0023",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Siktemål for behandlingen/preoperativ intensjon"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Siktemål for behandlingen/preoperativ intensjon"
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0023]",
+        "children" : [ {
+          "id" : "siktemål_for_behandlingen_preoperativ_intensjon",
+          "name" : "Siktemål for behandlingen/preoperativ intensjon",
+          "localizedName" : "Siktemål for behandlingen/preoperativ intensjon",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0024",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Siktemål for behandlingen/preoperativ intensjon"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Siktemål for behandlingen/preoperativ intensjon"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0023]/items[at0024]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0025",
+              "label" : "Kurativ",
+              "localizedLabels" : {
+                "nb" : "Kurativ"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0026",
+              "label" : "Palliativ",
+              "localizedLabels" : {
+                "nb" : "Palliativ"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0027",
+              "label" : "Ikke avklart",
+              "localizedLabels" : {
+                "nb" : "Ikke avklart"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            } ]
+          } ]
+        } ]
+      }, {
+        "id" : "kirurgi_av_primærtumor",
+        "name" : "Kirurgi av primærtumor",
+        "localizedName" : "Kirurgi av primærtumor",
+        "rmType" : "CLUSTER",
+        "nodeId" : "at0028",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Kirurgi av primærtumor"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Kirurgi av primærtumor"
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]",
+        "children" : [ {
+          "id" : "hastegrad",
+          "name" : "Hastegrad",
+          "localizedName" : "Hastegrad",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0275",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Hastegrad"
+          },
+          "localizedDescriptions" : {
+            "nb" : "*"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0275]",
+          "children" : [ {
+            "id" : "hastegrad",
+            "name" : "Hastegrad",
+            "localizedName" : "Hastegrad",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0029",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Hastegrad"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Hastegrad på kirugirsk inngrep"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0275]/items[at0029]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0030",
+                "label" : "Elektiv",
+                "localizedLabels" : {
+                  "nb" : "Elektiv"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0031",
+                "label" : "Akutt pga obstruksjon",
+                "localizedLabels" : {
+                  "nb" : "Akutt pga obstruksjon"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0032",
+                "label" : "Akutt pga perforasjon",
+                "localizedLabels" : {
+                  "nb" : "Akutt pga perforasjon"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0033",
+                "label" : "Akutt pga annet",
+                "localizedLabels" : {
+                  "nb" : "Akutt pga annet"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "spesifiser_hastegrad_annet",
+            "name" : "Spesifiser hastegrad annet",
+            "localizedName" : "Spesifiser hastegrad annet",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0034",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Spesifiser hastegrad annet"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Spesifiser hastegrad annet"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0275]/items[at0034]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "asa-score",
+          "name" : "ASA-score",
+          "localizedName" : "ASA-score",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0035",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "ASA-score"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Pasientens ASA-Score"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0035]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0036",
+              "label" : "I - Frisk pasient",
+              "localizedLabels" : {
+                "nb" : "I - Frisk pasient"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0037",
+              "label" : "II - Pasient med mild systemsykdom",
+              "localizedLabels" : {
+                "nb" : "II - Pasient med mild systemsykdom"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0038",
+              "label" : "III - Pasient med alvorlig systemsykdom som ikke gir nedsatt funksjon",
+              "localizedLabels" : {
+                "nb" : "III - Pasient med alvorlig systemsykdom som ikke gir nedsatt funksjon"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0039",
+              "label" : "IV - Pasient med alvorlig systemsykdom som er livstruende",
+              "localizedLabels" : {
+                "nb" : "IV - Pasient med alvorlig systemsykdom som er livstruende"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0040",
+              "label" : "V - Moribund pasient som ikke vil overleve 24 t med eller uten kirurgi",
+              "localizedLabels" : {
+                "nb" : "V - Moribund pasient som ikke vil overleve 24 t med eller uten kirurgi"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "kliniske_parametre",
+          "name" : "Kliniske parametre",
+          "localizedName" : "Kliniske parametre",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0041",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Kliniske parametre"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Kliniske parametere"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0041]",
+          "children" : [ {
+            "id" : "høyde_cm",
+            "name" : "Høyde (cm)",
+            "localizedName" : "Høyde (cm)",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0046",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Høyde (cm)"
+            },
+            "localizedDescriptions" : {
+              "nb" : "pasientens høyde"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0041]/items[at0046]/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0,
+                  "maxOp" : "<=",
+                  "max" : 270.0
+                },
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 0,
+                  "maxOp" : "<=",
+                  "max" : 0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "cm",
+                "label" : "cm",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 270.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 0,
+                    "maxOp" : "<=",
+                    "max" : 0
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "høyde_ukjent",
+            "name" : "Høyde Ukjent",
+            "localizedName" : "Høyde Ukjent",
+            "rmType" : "DV_BOOLEAN",
+            "nodeId" : "at0048",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Høyde Ukjent"
+            },
+            "localizedDescriptions" : {
+              "nb" : "pasientens høyde er ukjent"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0041]/items[at0048]/value",
+            "inputs" : [ {
+              "type" : "BOOLEAN"
+            } ]
+          }, {
+            "id" : "vekt_kg",
+            "name" : "Vekt (kg)",
+            "localizedName" : "Vekt (kg)",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0047",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Vekt (kg)"
+            },
+            "localizedDescriptions" : {
+              "nb" : "pasientens vekt"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0041]/items[at0047]/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0,
+                  "maxOp" : "<=",
+                  "max" : 600.0
+                },
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 0,
+                  "maxOp" : "<=",
+                  "max" : 0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "kg",
+                "label" : "kg",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 600.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 0,
+                    "maxOp" : "<=",
+                    "max" : 0
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "vekt_ukjent",
+            "name" : "Vekt Ukjent",
+            "localizedName" : "Vekt Ukjent",
+            "rmType" : "DV_BOOLEAN",
+            "nodeId" : "at0049",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Vekt Ukjent"
+            },
+            "localizedDescriptions" : {
+              "nb" : "pasientens vekt er ukjent"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0041]/items[at0049]/value",
+            "inputs" : [ {
+              "type" : "BOOLEAN"
+            } ]
+          }, {
+            "id" : "bmi",
+            "name" : "BMI",
+            "localizedName" : "BMI",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0255",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "BMI"
+            },
+            "localizedDescriptions" : {
+              "nb" : "pasientens BMI"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0041]/items[at0255]/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0
+                },
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 1,
+                  "maxOp" : "<=",
+                  "max" : 1
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "kg/m3",
+                "label" : "kg/m3",
+                "localizedLabels" : {
+                  "nb" : "kg/m³"
+                },
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 1,
+                    "maxOp" : "<=",
+                    "max" : 1
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "bmi_ukjent",
+            "name" : "BMI Ukjent",
+            "localizedName" : "BMI Ukjent",
+            "rmType" : "DV_BOOLEAN",
+            "nodeId" : "at0050",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "BMI Ukjent"
+            },
+            "localizedDescriptions" : {
+              "nb" : "pasientens BMI er ukjent"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0041]/items[at0050]/value",
+            "inputs" : [ {
+              "type" : "BOOLEAN"
+            } ]
+          } ]
+        }, {
+          "id" : "type_kirurgi",
+          "name" : "Type kirurgi",
+          "localizedName" : "Type kirurgi",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0051",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Type kirurgi"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Type kirurgisk inngrep utført"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0051]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0052",
+              "label" : "Åpen",
+              "localizedLabels" : {
+                "nb" : "Åpen"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0053",
+              "label" : "Laparoskopisk",
+              "localizedLabels" : {
+                "nb" : "Laparoskopisk"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0054",
+              "label" : "Laparoskopisk, konvertert åpen",
+              "localizedLabels" : {
+                "nb" : "Laparoskopisk, konvertert åpen"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "operasjonsdato",
+          "name" : "Operasjonsdato",
+          "localizedName" : "Operasjonsdato",
+          "rmType" : "DV_DATE",
+          "nodeId" : "at0056",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Operasjonsdato"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Dato for operasjon mot primærtumor"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0056]/value",
+          "inputs" : [ {
+            "type" : "DATE"
+          } ]
+        }, {
+          "id" : "reseksjon_av_tumor",
+          "name" : "Reseksjon av tumor",
+          "localizedName" : "Reseksjon av tumor",
+          "rmType" : "DV_BOOLEAN",
+          "nodeId" : "at0279",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Reseksjon av tumor"
+          },
+          "localizedDescriptions" : {
+            "nb" : "*"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0279]/value",
+          "inputs" : [ {
+            "type" : "BOOLEAN"
+          } ]
+        }, {
+          "id" : "inngrep_colon",
+          "name" : "Inngrep colon",
+          "localizedName" : "Inngrep colon",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0276",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Inngrep colon"
+          },
+          "localizedDescriptions" : {
+            "nb" : "*"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0276]",
+          "children" : [ {
+            "id" : "inngrep_colon",
+            "name" : "Inngrep colon",
+            "localizedName" : "Inngrep colon",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0060",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Inngrep colon"
+            },
+            "localizedDescriptions" : {
+              "nb" : "inngrep utført på colon"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0276]/items[at0060]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0061",
+                "label" : "Høyresidig hemicolectomi",
+                "localizedLabels" : {
+                  "nb" : "Høyresidig hemicolectomi"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0062",
+                "label" : "Venstresidig hemicolectomi",
+                "localizedLabels" : {
+                  "nb" : "Venstresidig hemicolectomi"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0063",
+                "label" : "Utvidet høyresidig hemicolectomi",
+                "localizedLabels" : {
+                  "nb" : "Utvidet høyresidig hemicolectomi"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0064",
+                "label" : "Utvidet venstresidig hemicolectomi",
+                "localizedLabels" : {
+                  "nb" : "Utvidet venstresidig hemicolectomi"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0065",
+                "label" : "Transversumreseksjon",
+                "localizedLabels" : {
+                  "nb" : "Transversumreseksjon"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0066",
+                "label" : "Transversum fleksurreseksjon",
+                "localizedLabels" : {
+                  "nb" : "Transversum fleksurreseksjon"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0067",
+                "label" : "Sigmoidreseksjon (ev. inkludert Hartmann)",
+                "localizedLabels" : {
+                  "nb" : "Sigmoidreseksjon (ev. inkludert Hartmann)"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0068",
+                "label" : "Total colectomi",
+                "localizedLabels" : {
+                  "nb" : "Total colectomi"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0069",
+                "label" : "Polypectomi (slyngereseksjon)",
+                "localizedLabels" : {
+                  "nb" : "Polypectomi (slyngereseksjon)"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0070",
+                "label" : "Proctocolectomi",
+                "localizedLabels" : {
+                  "nb" : "Proctocolectomi"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0071",
+                "label" : "Annet",
+                "localizedLabels" : {
+                  "nb" : "Annet"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "spesifiser_inngrep_colon",
+            "name" : "Spesifiser inngrep colon",
+            "localizedName" : "Spesifiser inngrep colon",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0072",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Spesifiser inngrep colon"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Spesifiser annet inngrep mot colon"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0276]/items[at0072]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "inngrep_rectum",
+          "name" : "Inngrep rectum",
+          "localizedName" : "Inngrep rectum",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0277",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Inngrep rectum"
+          },
+          "localizedDescriptions" : {
+            "nb" : "*"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0277]",
+          "children" : [ {
+            "id" : "inngrep_rectum",
+            "name" : "Inngrep rectum",
+            "localizedName" : "Inngrep rectum",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0074",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Inngrep rectum"
+            },
+            "localizedDescriptions" : {
+              "nb" : "inngrep utført på rectum"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0277]/items[at0074]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0075",
+                "label" : "Fremre reseksjon",
+                "localizedLabels" : {
+                  "nb" : "Fremre reseksjon"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0076",
+                "label" : "Hartmann",
+                "localizedLabels" : {
+                  "nb" : "Hartmann"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0077",
+                "label" : "Rectumamputasjon",
+                "localizedLabels" : {
+                  "nb" : "Rectumamputasjon"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0078",
+                "label" : "Proctocolectomi",
+                "localizedLabels" : {
+                  "nb" : "Proctocolectomi"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0079",
+                "label" : "Polypectomi (slyngereseksjon)",
+                "localizedLabels" : {
+                  "nb" : "Polypectomi (slyngereseksjon)"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0080",
+                "label" : "Konvensjonell transanal eksisjon",
+                "localizedLabels" : {
+                  "nb" : "Konvensjonell transanal eksisjon"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0081",
+                "label" : "Transanal endoskopisk mikrokirurgi (TEM)",
+                "localizedLabels" : {
+                  "nb" : "Transanal endoskopisk mikrokirurgi (TEM)"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0082",
+                "label" : "Annet",
+                "localizedLabels" : {
+                  "nb" : "Annet"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "spesifiser_inngrep_rectum",
+            "name" : "Spesifiser inngrep rectum",
+            "localizedName" : "Spesifiser inngrep rectum",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0083",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Spesifiser inngrep rectum"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Spesifiser annet inngrep mot rectum"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0277]/items[at0083]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "anastomose",
+          "name" : "Anastomose",
+          "localizedName" : "Anastomose",
+          "rmType" : "DV_BOOLEAN",
+          "nodeId" : "at0280",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Anastomose"
+          },
+          "localizedDescriptions" : {
+            "nb" : "har pasienten fått anestomose"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0280]/value",
+          "inputs" : [ {
+            "type" : "BOOLEAN"
+          } ]
+        }, {
+          "id" : "avlastende_stomi",
+          "name" : "Avlastende stomi",
+          "localizedName" : "Avlastende stomi",
+          "rmType" : "DV_BOOLEAN",
+          "nodeId" : "at0281",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Avlastende stomi"
+          },
+          "localizedDescriptions" : {
+            "nb" : "har pasienten fått avlastende stomi"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0281]/value",
+          "inputs" : [ {
+            "type" : "BOOLEAN"
+          } ]
+        }, {
+          "id" : "reseksjon_av_naboorgan",
+          "name" : "Reseksjon av naboorgan",
+          "localizedName" : "Reseksjon av naboorgan",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0278",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Reseksjon av naboorgan"
+          },
+          "localizedDescriptions" : {
+            "nb" : "*"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0278]",
+          "children" : [ {
+            "id" : "reseksjon_av_naboorgan",
+            "name" : "Reseksjon av naboorgan",
+            "localizedName" : "Reseksjon av naboorgan",
+            "rmType" : "DV_BOOLEAN",
+            "nodeId" : "at0282",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Reseksjon av naboorgan"
+            },
+            "localizedDescriptions" : {
+              "nb" : "er det gjort en reseksjon av naboorgan"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0278]/items[at0282]/value",
+            "inputs" : [ {
+              "type" : "BOOLEAN"
+            } ]
+          }, {
+            "id" : "lokalisasjon",
+            "name" : "Lokalisasjon",
+            "localizedName" : "Lokalisasjon",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0114",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "nb" : "Lokalisasjon"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Lokalisasjon til reseksjonert naboorgan"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0278]/items[at0114]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0115",
+                "label" : "Blære",
+                "localizedLabels" : {
+                  "nb" : "Blære"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0116",
+                "label" : "Prostata",
+                "localizedLabels" : {
+                  "nb" : "Prostata"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0117",
+                "label" : "Vagina",
+                "localizedLabels" : {
+                  "nb" : "Vagina"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0118",
+                "label" : "Uterus",
+                "localizedLabels" : {
+                  "nb" : "Uterus"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0119",
+                "label" : "Adnex/ovarium",
+                "localizedLabels" : {
+                  "nb" : "Adnex/ovarium"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0120",
+                "label" : "Sacrum",
+                "localizedLabels" : {
+                  "nb" : "Sacrum"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0121",
+                "label" : "Halebein (coccygis)",
+                "localizedLabels" : {
+                  "nb" : "Halebein (coccygis)"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0122",
+                "label" : "Bekkenvegg (lymfeknute)",
+                "localizedLabels" : {
+                  "nb" : "Bekkenvegg (lymfeknute)"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0123",
+                "label" : "Bukvegg",
+                "localizedLabels" : {
+                  "nb" : "Bukvegg"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0124",
+                "label" : "Annet",
+                "localizedLabels" : {
+                  "nb" : "Annet"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "spesifiser_lokalisasjon_annet",
+            "name" : "Spesifiser lokalisasjon annet",
+            "localizedName" : "Spesifiser lokalisasjon annet",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0125",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "nb" : "Spesifiser lokalisasjon annet"
+            },
+            "localizedDescriptions" : {
+              "nb" : "spesifiser okalisasjon til annet reseksjonert naboorgan"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0278]/items[at0125]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "operasjon_uten_reseksjon_av_tumorbærende_tarmsegment",
+          "name" : "Operasjon uten reseksjon av tumorbærende tarmsegment",
+          "localizedName" : "Operasjon uten reseksjon av tumorbærende tarmsegment",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0126",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Operasjon uten reseksjon av tumorbærende tarmsegment"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Operasjon uten reseksjon av tumorbærende tarmsegment"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0126]",
+          "children" : [ {
+            "id" : "utført_inngrep",
+            "name" : "Utført inngrep",
+            "localizedName" : "Utført inngrep",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0130",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "nb" : "Utført inngrep"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Hvilke inngrep er utført mot tumorbærende tarmsegment"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0126]/items[at0130]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0135",
+                "label" : "Bypass",
+                "localizedLabels" : {
+                  "nb" : "Bypass"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0136",
+                "label" : "Avlastende stomi",
+                "localizedLabels" : {
+                  "nb" : "Avlastende stomi"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0137",
+                "label" : "Kun eksplorativ laporatomi",
+                "localizedLabels" : {
+                  "nb" : "Kun eksplorativ laporatomi"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0138",
+                "label" : "Stenting",
+                "localizedLabels" : {
+                  "nb" : "Stenting"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "intraoperative_funn",
+          "name" : "Intraoperative funn",
+          "localizedName" : "Intraoperative funn",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0139",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Intraoperative funn"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Intraoperative funn"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0139]",
+          "children" : [ {
+            "id" : "levermetastaser",
+            "name" : "Levermetastaser",
+            "localizedName" : "Levermetastaser",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0140",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Levermetastaser"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Status funn levermetastaser"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0139]/items[at0140]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0243",
+                "label" : "Ja",
+                "localizedLabels" : {
+                  "nb" : "Ja"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0244",
+                "label" : "Nei",
+                "localizedLabels" : {
+                  "nb" : "Nei"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0245",
+                "label" : "Mistenkt",
+                "localizedLabels" : {
+                  "nb" : "Mistenkt"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "peritoneal_metastase_carcinomatose",
+            "name" : "Peritoneal metastase/carcinomatose",
+            "localizedName" : "Peritoneal metastase/carcinomatose",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0141",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Peritoneal metastase/carcinomatose"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Status funn Peritoneal metastase/carcinomatose"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0139]/items[at0141]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0246",
+                "label" : "Ja",
+                "localizedLabels" : {
+                  "nb" : "Ja"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0247",
+                "label" : "Nei",
+                "localizedLabels" : {
+                  "nb" : "Nei"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0248",
+                "label" : "Mistenkt",
+                "localizedLabels" : {
+                  "nb" : "Mistenkt"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "lymfeknutemetastaser_utenfor_reseksjonsområdet",
+            "name" : "Lymfeknutemetastaser utenfor reseksjonsområdet",
+            "localizedName" : "Lymfeknutemetastaser utenfor reseksjonsområdet",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0142",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Lymfeknutemetastaser utenfor reseksjonsområdet"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Status funn Lymfeknutemetastaser utenfor reseksjonsområdet"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0139]/items[at0142]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0249",
+                "label" : "Ja",
+                "localizedLabels" : {
+                  "nb" : "Ja"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0250",
+                "label" : "Nei",
+                "localizedLabels" : {
+                  "nb" : "Nei"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0251",
+                "label" : "Mistenkt",
+                "localizedLabels" : {
+                  "nb" : "Mistenkt"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "innvekst_i_naboorgan",
+            "name" : "Innvekst i naboorgan",
+            "localizedName" : "Innvekst i naboorgan",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0143",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Innvekst i naboorgan"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Status funn Innvekst i naboorgan"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0139]/items[at0143]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0252",
+                "label" : "Ja",
+                "localizedLabels" : {
+                  "nb" : "Ja"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0253",
+                "label" : "Nei",
+                "localizedLabels" : {
+                  "nb" : "Nei"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0254",
+                "label" : "Mistenkt",
+                "localizedLabels" : {
+                  "nb" : "Mistenkt"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "spesifiser_annet_naboorgan",
+            "name" : "Spesifiser annet naboorgan",
+            "localizedName" : "Spesifiser annet naboorgan",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0144",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Spesifiser annet naboorgan"
+            },
+            "localizedDescriptions" : {
+              "nb" : "spesifisera annet naboorgan "
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0139]/items[at0144]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "perforasjon_oppstått_under_operasjonen",
+            "name" : "Perforasjon oppstått under operasjonen",
+            "localizedName" : "Perforasjon oppstått under operasjonen",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0145",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Perforasjon oppstått under operasjonen"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Perforasjon oppstått under operasjonen"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0139]/items[at0145]",
+            "children" : [ {
+              "id" : "perforasjon_status",
+              "name" : "Perforasjon status",
+              "localizedName" : "Perforasjon status",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0146",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "nb" : "Perforasjon status"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0139]/items[at0145]/items[at0146]/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "at0147",
+                  "label" : "Ingen perforasjon",
+                  "localizedLabels" : {
+                    "nb" : "Ingen perforasjon"
+                  },
+                  "localizedDescriptions" : {
+                    "nb" : "*"
+                  }
+                }, {
+                  "value" : "at0149",
+                  "label" : "Tumornær perforasjon av tarmen",
+                  "localizedLabels" : {
+                    "nb" : "Tumornær perforasjon av tarmen"
+                  },
+                  "localizedDescriptions" : {
+                    "nb" : "*"
+                  }
+                }, {
+                  "value" : "at0151",
+                  "label" : "Perforasjon tumor",
+                  "localizedLabels" : {
+                    "nb" : "Perforasjon tumor"
+                  },
+                  "localizedDescriptions" : {
+                    "nb" : "*"
+                  }
+                } ]
+              } ]
+            } ]
+          }, {
+            "id" : "resttumor_lokalt_kirurgens_vurdering",
+            "name" : "Resttumor lokalt (kirurgens vurdering)",
+            "localizedName" : "Resttumor lokalt (kirurgens vurdering)",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0153",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Resttumor lokalt (kirurgens vurdering)"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Resttumor lokalt (kirurgens vurdering)"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0139]/items[at0153]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0154",
+                "label" : "Ja",
+                "localizedLabels" : {
+                  "nb" : "Ja"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0155",
+                "label" : "Nei",
+                "localizedLabels" : {
+                  "nb" : "Nei"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0156",
+                "label" : "Usikker",
+                "localizedLabels" : {
+                  "nb" : "Usikker"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0157",
+                "label" : "Ukjent",
+                "localizedLabels" : {
+                  "nb" : "Ukjent"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "er_det_i_samme_operasjon_gjort_inngrep_mot_metastaser",
+            "name" : "Er det i samme operasjon gjort inngrep mot metastaser?",
+            "localizedName" : "Er det i samme operasjon gjort inngrep mot metastaser?",
+            "rmType" : "DV_BOOLEAN",
+            "nodeId" : "at0283",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Er det i samme operasjon gjort inngrep mot metastaser?"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Er det i samme operasjon gjort inngrep mot metastaser?"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0139]/items[at0283]/value",
+            "inputs" : [ {
+              "type" : "BOOLEAN"
+            } ]
+          } ]
+        }, {
+          "id" : "komplikasjoner",
+          "name" : "Komplikasjoner",
+          "localizedName" : "Komplikasjoner",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0161",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Komplikasjoner"
+          },
+          "localizedDescriptions" : {
+            "nb" : "komplikasjoner"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0161]",
+          "children" : [ {
+            "id" : "komplikasjoner",
+            "name" : "Komplikasjoner",
+            "localizedName" : "Komplikasjoner",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0268",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "nb" : "Komplikasjoner"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Komplikasjoner som har oppstått"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0161]/items[at0268]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0269",
+                "label" : "Ingen",
+                "localizedLabels" : {
+                  "nb" : "Ingen"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0271",
+                "label" : "Anastomoselekkasje",
+                "localizedLabels" : {
+                  "nb" : "Anastomoselekkasje"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0273",
+                "label" : "Annet",
+                "localizedLabels" : {
+                  "nb" : "Annet"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "spesifiser_komplikasjoner_annet",
+            "name" : "Spesifiser komplikasjoner annet",
+            "localizedName" : "Spesifiser komplikasjoner annet",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0169",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Spesifiser komplikasjoner annet"
+            },
+            "localizedDescriptions" : {
+              "nb" : "spesifiser komplikasjoner annet"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0161]/items[at0169]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "reoperasjon",
+            "name" : "Reoperasjon",
+            "localizedName" : "Reoperasjon",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0170",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Reoperasjon"
+            },
+            "localizedDescriptions" : {
+              "nb" : "status reoperasjon"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0161]/items[at0170]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0171",
+                "label" : "Ja",
+                "localizedLabels" : {
+                  "nb" : "Ja"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0172",
+                "label" : "Nei",
+                "localizedLabels" : {
+                  "nb" : "Nei"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0173",
+                "label" : "Ukjent",
+                "localizedLabels" : {
+                  "nb" : "Ukjent"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "dato_reoperasjon",
+            "name" : "Dato reoperasjon",
+            "localizedName" : "Dato reoperasjon",
+            "rmType" : "DV_DATE",
+            "nodeId" : "at0174",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Dato reoperasjon"
+            },
+            "localizedDescriptions" : {
+              "nb" : "dato for reoperasjon"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/items[at0161]/items[at0174]/value",
+            "inputs" : [ {
+              "type" : "DATE",
+              "validation" : {
+                "pattern" : "yyyy-mm-dd"
+              }
+            } ]
+          } ]
+        } ]
+      }, {
+        "id" : "kirurgi_av_lokalt_residiv",
+        "name" : "Kirurgi av lokalt residiv",
+        "localizedName" : "Kirurgi av lokalt residiv",
+        "rmType" : "CLUSTER",
+        "nodeId" : "at0176",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Kirurgi av lokalt residiv"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Kirurgi av lokalt residiv"
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0176]",
+        "children" : [ {
+          "id" : "operasjonsdato_dd.mm.åååå",
+          "name" : "Operasjonsdato (dd.mm.åååå)",
+          "localizedName" : "Operasjonsdato (dd.mm.åååå)",
+          "rmType" : "DV_DATE",
+          "nodeId" : "at0178",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Operasjonsdato (dd.mm.åååå)"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Operasjonsdato av lokalt residiv"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0176]/items[at0178]/value",
+          "inputs" : [ {
+            "type" : "DATE"
+          } ]
+        }, {
+          "id" : "inngrep_lokalt_residiv",
+          "name" : "Inngrep lokalt residiv",
+          "localizedName" : "Inngrep lokalt residiv",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0179",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "nb" : "Inngrep lokalt residiv"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Inngrep mot lokalt residiv"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0176]/items[at0179]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0180",
+              "label" : "Reseksjon",
+              "localizedLabels" : {
+                "nb" : "Reseksjon"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0182",
+              "label" : "Annet",
+              "localizedLabels" : {
+                "nb" : "Annet"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "spesifiser_inngrep",
+          "name" : "Spesifiser inngrep",
+          "localizedName" : "Spesifiser inngrep",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0184",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Spesifiser inngrep"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Spesifiser annet inngrep mot lokalt residiv"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0176]/items[at0184]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "resttumor_lokalt_kirurgens_vurdering",
+          "name" : "Resttumor lokalt (kirurgens vurdering)",
+          "localizedName" : "Resttumor lokalt (kirurgens vurdering)",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0185",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Resttumor lokalt (kirurgens vurdering)"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Resttumor lokalt (kirurgens vurdering)"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0176]/items[at0185]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0189",
+              "label" : "Ja",
+              "localizedLabels" : {
+                "nb" : "Ja"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0190",
+              "label" : "Nei",
+              "localizedLabels" : {
+                "nb" : "Nei"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0191",
+              "label" : "Usikker",
+              "localizedLabels" : {
+                "nb" : "Usikker"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0192",
+              "label" : "Ukjent",
+              "localizedLabels" : {
+                "nb" : "Ukjent"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "er_det_i_samme_operasjon_gjort_inngrep_mot_metastase_r",
+          "name" : "Er det i samme operasjon gjort inngrep mot metastase(r)",
+          "localizedName" : "Er det i samme operasjon gjort inngrep mot metastase(r)",
+          "rmType" : "DV_BOOLEAN",
+          "nodeId" : "at0284",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Er det i samme operasjon gjort inngrep mot metastase(r)"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Er det i samme operasjon gjort inngrep mot metastase(r)"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0176]/items[at0284]/value",
+          "inputs" : [ {
+            "type" : "BOOLEAN"
+          } ]
+        } ]
+      }, {
+        "id" : "kirurgi_av_metastase_r",
+        "name" : "Kirurgi av metastase(r)",
+        "localizedName" : "Kirurgi av metastase(r)",
+        "rmType" : "CLUSTER",
+        "nodeId" : "at0177",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Kirurgi av metastase(r)"
+        },
+        "localizedDescriptions" : {
+          "nb" : "*"
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0177]",
+        "children" : [ {
+          "id" : "lokalisasjon_av_behandlet_metastase",
+          "name" : "Lokalisasjon av behandlet metastase",
+          "localizedName" : "Lokalisasjon av behandlet metastase",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0193",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "nb" : "Lokalisasjon av behandlet metastase"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Lokalisasjon for behandlet metastase(r)"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0177]/items[at0193]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0194",
+              "label" : "Lever",
+              "localizedLabels" : {
+                "nb" : "Lever"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0196",
+              "label" : "Peritoneum/carcinomatose",
+              "localizedLabels" : {
+                "nb" : "Peritoneum/carcinomatose"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0198",
+              "label" : "Lymfeknuter utenfor reseskjonsområde",
+              "localizedLabels" : {
+                "nb" : "Lymfeknuter utenfor reseskjonsområde"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0200",
+              "label" : "Adnex/ovarium",
+              "localizedLabels" : {
+                "nb" : "Adnex/ovarium"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0202",
+              "label" : "Annet",
+              "localizedLabels" : {
+                "nb" : "Annet"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "spesifiser",
+          "name" : "Spesifiser",
+          "localizedName" : "Spesifiser",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0204",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Spesifiser"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Spesifiser lokalsiasjon annet av behandlet metastase(r)"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0177]/items[at0204]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "operasjonsdato_dd.mm.åååå",
+          "name" : "Operasjonsdato (dd.mm.åååå)",
+          "localizedName" : "Operasjonsdato (dd.mm.åååå)",
+          "rmType" : "DV_DATE",
+          "nodeId" : "at0205",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Operasjonsdato (dd.mm.åååå)"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Operasjonsdato for innrep mot metastase(r)"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0177]/items[at0205]/value",
+          "inputs" : [ {
+            "type" : "DATE"
+          } ]
+        }, {
+          "id" : "inngrep_metastase",
+          "name" : "Inngrep metastase",
+          "localizedName" : "Inngrep metastase",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0206",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Inngrep metastase"
+          },
+          "localizedDescriptions" : {
+            "nb" : "*"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0177]/items[at0206]",
+          "children" : [ {
+            "id" : "inngrep_metastaser",
+            "name" : "Inngrep metastaser",
+            "localizedName" : "Inngrep metastaser",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0207",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "nb" : "Inngrep metastaser"
+            },
+            "localizedDescriptions" : {
+              "nb" : "*"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0177]/items[at0206]/items[at0207]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0208",
+                "label" : "Reseksjon av metastase",
+                "localizedLabels" : {
+                  "nb" : "Reseksjon av metastase"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0210",
+                "label" : "Annet",
+                "localizedLabels" : {
+                  "nb" : "Annet"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "spesifiser_inngrep_mot_metaste_r",
+            "name" : "Spesifiser inngrep mot metaste(r)",
+            "localizedName" : "Spesifiser inngrep mot metaste(r)",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0213",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Spesifiser inngrep mot metaste(r)"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Spesifiser inngrep mot metaste(r)"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0177]/items[at0206]/items[at0213]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "makroskopisk_resttumor_kirurgens_vurdering",
+            "name" : "Makroskopisk resttumor (kirurgens vurdering)",
+            "localizedName" : "Makroskopisk resttumor (kirurgens vurdering)",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0214",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Makroskopisk resttumor (kirurgens vurdering)"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Makroskopisk resttumor (kirurgens vurdering)"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0177]/items[at0206]/items[at0214]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0215",
+                "label" : "Ja",
+                "localizedLabels" : {
+                  "nb" : "Ja"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0216",
+                "label" : "Nei",
+                "localizedLabels" : {
+                  "nb" : "Nei"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0217",
+                "label" : "Usikker",
+                "localizedLabels" : {
+                  "nb" : "Usikker"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              }, {
+                "value" : "at0218",
+                "label" : "Ukjent",
+                "localizedLabels" : {
+                  "nb" : "Ukjent"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          } ]
+        } ]
+      }, {
+        "id" : "patologilaboratorium",
+        "name" : "Patologilaboratorium",
+        "localizedName" : "Patologilaboratorium",
+        "rmType" : "CLUSTER",
+        "nodeId" : "openEHR-EHR-CLUSTER.kreftmelding_kolorektal_patologilaboratorium_dips.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Patologilaboratorium"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Patologilaboratorium til bruk i kreftmelding skjema. "
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_patologilaboratorium_dips.v1]",
+        "children" : [ {
+          "id" : "laboratorium",
+          "name" : "Laboratorium",
+          "localizedName" : "Laboratorium",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0001",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Laboratorium"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Liste over laboratorier. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_patologilaboratorium_dips.v1]/items[at0001]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0002",
+              "label" : "AHUS, Akershus universitetssykehus",
+              "localizedLabels" : {
+                "nb" : "AHUS, Akershus universitetssykehus"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0003",
+              "label" : "Fürst Patologi",
+              "localizedLabels" : {
+                "nb" : "Fürst Patologi"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0004",
+              "label" : "Gyn Lab A/S",
+              "localizedLabels" : {
+                "nb" : "Gyn Lab A/S"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0005",
+              "label" : "Gades Institutt, Haukeland universitetssjukehus",
+              "localizedLabels" : {
+                "nb" : "Gades Institutt, Haukeland universitetssjukehus"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0006",
+              "label" : "Helse Fonna, Haugesund sjukehus",
+              "localizedLabels" : {
+                "nb" : "Helse Fonna, Haugesund sjukehus"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0007",
+              "label" : "Helse Førde, Førde sjukehus",
+              "localizedLabels" : {
+                "nb" : "Helse Førde, Førde sjukehus"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0008",
+              "label" : "Helse Møre og Romsdal, Molde sjukehus",
+              "localizedLabels" : {
+                "nb" : "Helse Møre og Romsdal, Molde sjukehus"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0009",
+              "label" : "Helse Sunnmøre, Ålesund sjukehus",
+              "localizedLabels" : {
+                "nb" : "Helse Sunnmøre, Ålesund sjukehus"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0010",
+              "label" : "Nordlandssykehuset, Bodø",
+              "localizedLabels" : {
+                "nb" : "Nordlandssykehuset, Bodø"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0011",
+              "label" : "Oslo universitetssykehus, Aker",
+              "localizedLabels" : {
+                "nb" : "Oslo universitetssykehus, Aker"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0012",
+              "label" : "Oslo universitetssykehus, Radiumhospitalet",
+              "localizedLabels" : {
+                "nb" : "Oslo universitetssykehus, Radiumhospitalet"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0013",
+              "label" : "Oslo universitetssykehus, Rikshospitalet",
+              "localizedLabels" : {
+                "nb" : "Oslo universitetssykehus, Rikshospitalet"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0014",
+              "label" : "Oslo universitetssykehus, Ullevål",
+              "localizedLabels" : {
+                "nb" : "Oslo universitetssykehus, Ullevål"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0015",
+              "label" : "Stavanger universitetssjukehus",
+              "localizedLabels" : {
+                "nb" : "Stavanger universitetssjukehus"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0016",
+              "label" : "St. Olavs Hospital",
+              "localizedLabels" : {
+                "nb" : "St. Olavs Hospital"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0017",
+              "label" : "Sykehuset Innlandet, Lillehammer",
+              "localizedLabels" : {
+                "nb" : "Sykehuset Innlandet, Lillehammer"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0018",
+              "label" : "Sykehuset i Telemark, Skien",
+              "localizedLabels" : {
+                "nb" : "Sykehuset i Telemark, Skien"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0019",
+              "label" : "Sykehuset i Vestfold, Tønsberg",
+              "localizedLabels" : {
+                "nb" : "Sykehuset i Vestfold, Tønsberg"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0020",
+              "label" : "Sykehuset Østfold, Kalnes",
+              "localizedLabels" : {
+                "nb" : "Sykehuset Østfold, Kalnes"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0021",
+              "label" : "Sørlandet sykehus, Arendal",
+              "localizedLabels" : {
+                "nb" : "Sørlandet sykehus, Arendal"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0022",
+              "label" : "Sørlandet sykehus, Kristiansand",
+              "localizedLabels" : {
+                "nb" : "Sørlandet sykehus, Kristiansand"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0023",
+              "label" : "UNN, Universitetssykehuset i Nord-Norge",
+              "localizedLabels" : {
+                "nb" : "UNN, Universitetssykehuset i Nord-Norge"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0024",
+              "label" : "Vestre Viken HF, Sykehuset Buskerud, Drammen",
+              "localizedLabels" : {
+                "nb" : "Vestre Viken HF, Sykehuset Buskerud, Drammen"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0025",
+              "label" : "Annet laboratorium",
+              "localizedLabels" : {
+                "nb" : "Annet laboratorium"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0026",
+              "label" : "Ukjent",
+              "localizedLabels" : {
+                "nb" : "Ukjent"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "ikke_relevant",
+          "name" : "Ikke relevant",
+          "localizedName" : "Ikke relevant",
+          "rmType" : "DV_BOOLEAN",
+          "nodeId" : "at0027",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Ikke relevant"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Krysses av dersom informasjon om laboratorium ikke er relevant. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_patologilaboratorium_dips.v1]/items[at0027]/value",
+          "inputs" : [ {
+            "type" : "BOOLEAN"
+          } ]
+        }, {
+          "id" : "spesifiser",
+          "name" : "Spesifiser",
+          "localizedName" : "Spesifiser",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Spesifiser"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Spesifiserer laboratorium dersom \"annet laboratorium\" er valgt. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_patologilaboratorium_dips.v1]/items[at0028]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "preparatnummer",
+          "name" : "Preparatnummer",
+          "localizedName" : "Preparatnummer",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0029",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Preparatnummer"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Preparatnummer. "
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_patologilaboratorium_dips.v1]/items[at0029]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        } ]
+      }, {
+        "id" : "oppfølging_tiltak",
+        "name" : "Oppfølging/tiltak",
+        "localizedName" : "Oppfølging/tiltak",
+        "rmType" : "CLUSTER",
+        "nodeId" : "at0220",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Oppfølging/tiltak"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Oppfølging/tiltak"
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0220]",
+        "children" : [ {
+          "id" : "oppfølging_tiltak",
+          "name" : "Oppfølging/tiltak",
+          "localizedName" : "Oppfølging/tiltak",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0221",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Oppfølging/tiltak"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Oppfølging/tiltak"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0220]/items[at0221]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0224",
+              "label" : "Behandling ved samme institusjon",
+              "localizedLabels" : {
+                "nb" : "Behandling ved samme institusjon"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0225",
+              "label" : "Behandling ved annen institusjon",
+              "localizedLabels" : {
+                "nb" : "Behandling ved annen institusjon"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0226",
+              "label" : "Ingen videre behandling",
+              "localizedLabels" : {
+                "nb" : "Ingen videre behandling"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0227",
+              "label" : "Ikke avklart",
+              "localizedLabels" : {
+                "nb" : "Ikke avklart"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0228",
+              "label" : "Ukjent",
+              "localizedLabels" : {
+                "nb" : "Ukjent"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "planlagt_etterbehandling",
+          "name" : "Planlagt etterbehandling",
+          "localizedName" : "Planlagt etterbehandling",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0222",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "nb" : "Planlagt etterbehandling"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Oppfølging/tiltak"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0220]/items[at0222]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0229",
+              "label" : "Strålebehandling uten kjemoterapi",
+              "localizedLabels" : {
+                "nb" : "Strålebehandling uten kjemoterapi"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0230",
+              "label" : "Kjemoterapi",
+              "localizedLabels" : {
+                "nb" : "Kjemoterapi"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0231",
+              "label" : "Strålebehandling med kjemoterapi",
+              "localizedLabels" : {
+                "nb" : "Strålebehandling med kjemoterapi"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0232",
+              "label" : "Kirurgi for metastaser",
+              "localizedLabels" : {
+                "nb" : "Kirurgi for metastaser"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0233",
+              "label" : "Rutinemessig kontroll",
+              "localizedLabels" : {
+                "nb" : "Rutinemessig kontroll"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0234",
+              "label" : "Ikke avklart",
+              "localizedLabels" : {
+                "nb" : "Ikke avklart"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "årsak_ingen_behandling",
+          "name" : "Årsak ingen behandling",
+          "localizedName" : "Årsak ingen behandling",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0223",
+          "min" : 0,
+          "max" : 4,
+          "localizedNames" : {
+            "nb" : "Årsak ingen behandling"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Årsak ingen behandling"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0220]/items[at0223]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0235",
+              "label" : "Ikke indikasjon i følge retningslinjene",
+              "localizedLabels" : {
+                "nb" : "Ikke indikasjon i følge retningslinjene"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0236",
+              "label" : "Pasientens ønske",
+              "localizedLabels" : {
+                "nb" : "Pasientens ønske"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0237",
+              "label" : "Annet",
+              "localizedLabels" : {
+                "nb" : "Annet"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            }, {
+              "value" : "at0238",
+              "label" : "Ukjent",
+              "localizedLabels" : {
+                "nb" : "Ukjent"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "spesifiser_årsak_til_ingen_behandling",
+          "name" : "Spesifiser årsak til ingen behandling",
+          "localizedName" : "Spesifiser årsak til ingen behandling",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0239",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Spesifiser årsak til ingen behandling"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Spesifiser årsak annet ingen behandling"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0220]/items[at0239]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        } ]
+      }, {
+        "id" : "time",
+        "name" : "Time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/data[at0001]/events[at0002]/time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1]/subject",
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "localizedLabels" : {
+            "nb" : ""
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inContext" : true
+    } ]
+  }
+}

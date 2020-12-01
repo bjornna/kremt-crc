@@ -1,0 +1,72 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.kreftmelding_kolorektal_cea_dips.v1
+
+concept
+	[at0000]	-- Cea
+language
+	original_language = <[ISO_639-1::nb]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"046547F7096DCC76B432176012F7C388">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Cea
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- CEA
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::118]>
+						list = <
+							["1"] = <
+								units = <"µg/L">
+								magnitude = <|0.0..100.0|>
+								precision = <|1|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Ikke tatt
+				value matches {
+					DV_BOOLEAN matches {
+						value matches {True}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"Cea">
+					description = <"CEA cluster arketype">
+				>
+				["at0001"] = <
+					text = <"CEA">
+					description = <"CEA score. ">
+				>
+				["at0002"] = <
+					text = <"Ikke tatt">
+					description = <"Krysses av dersom CEA ikke er tatt. ">
+				>
+			>
+		>
+	>

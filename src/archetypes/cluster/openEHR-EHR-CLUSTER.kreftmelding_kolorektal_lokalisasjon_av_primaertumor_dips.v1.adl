@@ -1,0 +1,238 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1
+
+concept
+	[at0000]	-- Lokalisasjon av primaertumor
+language
+	original_language = <[ISO_639-1::nb]>
+description
+	original_author = <
+		["name"] = <"Borisa Barisa">
+		["email"] = <"boba@dips.no">
+		["organisation"] = <"DIPS AS, Norway ">
+		["date"] = <"2020-01-03">
+	>
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"Cluster arketype som brukes i forbindelse med kolerekral kreftmelding. ">
+			use = <"Brukes som cluster arketype i kolorektal kreftmelding. ">
+			misuse = <"Alt annet utover det som er definert under bruk. ">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <"Morten Pavicevic Hørthe, DIPS AS, Norway ", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"30E3FAFDDEA9400C136DFDBA0DE8E267">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Lokalisasjon av primaertumor
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Lokalisajon
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- Colon (C18-C19)
+							at0003]	-- Rectum (C20)
+						}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Spesifiser lokalisajon Colon
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0006, 	-- Cøkum (C18.0)
+							at0007, 	-- Appendix (C18.1)
+							at0008, 	-- Ascendens (C18.2)
+							at0009, 	-- Høyre fleksur (C18.3)
+							at0010, 	-- Transversum (C18.4)
+							at0011, 	-- Venstre fleksur (C18.5)
+							at0012, 	-- Descendens (C18.6)
+							at0013, 	-- Sigmoideum, ≥ 20 cm (C18.7)
+							at0014, 	-- Tykktarm, overlappende (C18.8)
+							at0015, 	-- Tykktarm uspesifisert (C18.9)
+							at0016]	-- Rectosigmoid ≥ 16 og < 20 cm (C19)
+						}
+					}
+				}
+			}
+			ELEMENT[at0026] occurrences matches {0..1} matches {	-- Angi avstand fra analåpning til nedre kant av tumor (målt på stivt skop)
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"cm">
+								magnitude = <|0.0..99.0|>
+								precision = <|1|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0033] occurrences matches {0..1} matches {	-- Ukjent
+				value matches {
+					DV_BOOLEAN matches {
+						value matches {True, False}
+					}
+				}
+			}
+			ELEMENT[at0034] occurrences matches {0..1} matches {	-- Avstand fra øvre kant av M.puborektalis til nedre kant av tumor (målt ved MR)
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"cm">
+								magnitude = <|0.0..99.0|>
+								precision = <|2|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0032] occurrences matches {0..1} matches {	-- Ukjent
+				value matches {
+					DV_BOOLEAN matches {
+						value matches {True, False}
+					}
+				}
+			}
+			ELEMENT[at0021] occurrences matches {0..1} matches {	-- Klinisk sikker kreft
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0022, 	-- Ja
+							at0023]	-- Usikker
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"KREG-COLON",...>
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"Lokalisasjon av primaertumor">
+					description = <"Cluster arketype som brukes i forbindelse med kolerekral kreftmelding. ">
+				>
+				["at0001"] = <
+					text = <"Lokalisajon">
+					description = <"Lokalisasjon av tumor ">
+				>
+				["at0002"] = <
+					text = <"Colon (C18-C19)">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Rectum (C20)">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Spesifiser lokalisajon Colon">
+					description = <"Angir spesifikk lokalisasjon for Colon ">
+				>
+				["at0006"] = <
+					text = <"Cøkum (C18.0)">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Appendix (C18.1)">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Ascendens (C18.2)">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Høyre fleksur (C18.3)">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Transversum (C18.4)">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Venstre fleksur (C18.5)">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Descendens (C18.6)">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Sigmoideum, ≥ 20 cm (C18.7)">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Tykktarm, overlappende (C18.8)">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Tykktarm uspesifisert (C18.9)">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Rectosigmoid ≥ 16 og < 20 cm (C19)">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Klinisk sikker kreft">
+					description = <"Angir informasjon om kreft er klinisk sikker. ">
+				>
+				["at0022"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Usikker">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Angi avstand fra analåpning til nedre kant av tumor (målt på stivt skop)">
+					description = <"Angir avstand fra analåpning til nedre kant av tumor (målt på stivt skop)">
+				>
+				["at0032"] = <
+					text = <"Ukjent">
+					description = <"Avstand ukjent. ">
+				>
+				["at0033"] = <
+					text = <"Ukjent">
+					description = <"Avstand ukjent. ">
+				>
+				["at0034"] = <
+					text = <"Avstand fra øvre kant av M.puborektalis til nedre kant av tumor (målt ved MR)">
+					description = <"Angir avstand fra øvre kant av M.puborektalis til nedre kant av tumor (målt ved MR)">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["KREG-COLON"] = <
+			items = <
+				["at0002"] = <[KREG-COLON::1]>
+				["at0003"] = <[KREG-COLON::2]>
+				["at0006"] = <[KREG-COLON::180]>
+				["at0007"] = <[KREG-COLON::181]>
+				["at0008"] = <[KREG-COLON::182]>
+				["at0009"] = <[KREG-COLON::183]>
+				["at0010"] = <[KREG-COLON::184]>
+				["at0011"] = <[KREG-COLON::185]>
+				["at0012"] = <[KREG-COLON::186]>
+				["at0013"] = <[KREG-COLON::187]>
+				["at0014"] = <[KREG-COLON::188]>
+				["at0015"] = <[KREG-COLON::189]>
+				["at0016"] = <[KREG-COLON::199]>
+			>
+		>
+	>

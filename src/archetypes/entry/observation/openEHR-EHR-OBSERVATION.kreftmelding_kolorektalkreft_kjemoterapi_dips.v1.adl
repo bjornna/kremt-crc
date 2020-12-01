@@ -1,0 +1,446 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1
+
+concept
+	[at0000]	-- Kreftmelding kolorektalkreft kjemoterapi dips
+language
+	original_language = <[ISO_639-1::nb]>
+description
+	original_author = <
+		["name"] = <"Morten Pavicevic Hørthe">
+		["email"] = <"mho@dips.no">
+		["organisation"] = <"DIPS AS">
+		["date"] = <"2020-01-03">
+	>
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"Er laget for å dekke meldeskjema for kjemoterapi til kreftregisteret i DIPS ARENA. Denne arketypen er laget etter kravpekk dokumentasjon_colorectal_v3.0 fra kreftregisteret.">
+			use = <"Skal kun brukes i kreftmelding kjemoterapi til kreftregisteret sitt kolorektalkreft register i DIPS ARENA. ">
+			misuse = <"Skal ikke brukes til noen andre formål enn beskrevet over.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"A380E1AFE2CF8DEBCD0D9F9059C53F98">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Kreftmelding kolorektalkreft kjemoterapi dips
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {1..*; unordered} matches {
+									allow_archetype CLUSTER[at0336] occurrences matches {0..*} matches {	-- Pasient/behandlingsinstitusjon
+										include
+											archetype_id/value matches {/.*/}
+									}
+									CLUSTER[at0337] occurrences matches {0..1} matches {	-- Behandling for
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0339] occurrences matches {0..1} matches {	-- Behandling for
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0340, 	-- Primærsykdom - lokal/lokalavansert inkludert spredning til regionale lymfeknuter
+															at0341, 	-- Primærsykdom - avansert sykdom (fjernspredning)
+															at0342, 	-- Tilbakefall - lokal/lokalavansert sykdom inkludert spredning til regionale lymfeknuter
+															at0343]	-- Tilbakefall - avansert sykdom (fjernspredning)
+														}
+													}
+												}
+											}
+											ELEMENT[at0402] occurrences matches {0..*} matches {	-- Lokalisasjon av metastaser
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0403, 	-- Lever
+															at0405, 	-- Lunge
+															at0407, 	-- Peritoneum/peritoneal carcinomatose
+															at0409, 	-- Skjelett
+															at0411, 	-- Hjerne
+															at0413, 	-- Lymfeknuter utenfor reseksjonsområdet
+															at0415]	-- Annet
+														}
+													}
+												}
+											}
+											ELEMENT[at0352] occurrences matches {0..1} matches {	-- Spesifiser lokalisasjon
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0353] occurrences matches {0..*} matches {	-- Lokalisasjon av primærtumor	
+										include
+											archetype_id/value matches {/.*/}
+									}
+									CLUSTER[at0354] occurrences matches {0..1} matches {	-- Kjemoterapi	
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0355] occurrences matches {0..1} matches {	-- Hensikten med behandlingsplanen
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0357, 	-- Adjuvant kjemoterapi
+															at0358, 	-- Strålesensitiviserende behandling
+															at0359, 	-- Kjemoterapi før planlagt kirurgi
+															at0360]	-- Livsforlengende og lindrende behandling
+														}
+													}
+												}
+											}
+											allow_archetype CLUSTER[at0425] occurrences matches {0..*} matches {	-- CEA
+												include
+													archetype_id/value matches {/.*/}
+											}
+											allow_archetype CLUSTER[at0426] occurrences matches {0..*} matches {	-- ECOG
+												include
+													archetype_id/value matches {/.*/}
+											}
+											ELEMENT[at0369] occurrences matches {0..1} matches {	-- Startdato for behandlingen(dd.mm.åååå)
+												value matches {
+													DV_DATE_TIME matches {*}
+												}
+											}
+											ELEMENT[at0370] occurrences matches {0..1} matches {	-- Linje
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0371, 	-- 1.linje palliativ behandling
+															at0372, 	-- 2.linje palliativ behandling
+															at0373, 	-- 3.linje palliativ behandling
+															at0374]	-- Seinere palliativ linje
+														}
+													}
+												}
+											}
+											CLUSTER[at0381] occurrences matches {0..1} matches {	-- Årsak til skifte av behandling
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0417] occurrences matches {0..*} matches {	-- Årsaker
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0418, 	-- Bivirkninger/toksisitet
+																	at0420, 	-- Progresjon
+																	at0422, 	-- Annet
+																	at0424]	-- Ukjent
+																}
+															}
+														}
+													}
+													ELEMENT[at0379] occurrences matches {0..1} matches {	-- Spesifiser årsak
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+											CLUSTER[at0380] occurrences matches {0..1} matches {	-- Medikamenter
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0382] occurrences matches {0..*} matches {	-- Medikamenter
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0383, 	-- Kapecitabin
+																	at0385, 	-- 5-FU
+																	at0387, 	-- Kalsiumfolinat
+																	at0389, 	-- Oksaliplatin
+																	at0391, 	-- Irinotecan
+																	at0393, 	-- VEGF-hemmer
+																	at0395, 	-- EGFR-hemmer
+																	at0397]	-- Annet
+																}
+															}
+														}
+													}
+													ELEMENT[at0399] occurrences matches {0..1} matches {	-- Spesifiser medikament
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0400] occurrences matches {0..*} matches {	-- Kommentar
+										include
+											archetype_id/value matches {/.*/}
+									}
+									allow_archetype CLUSTER[at0401] occurrences matches {0..*} matches {	-- Melder
+										include
+											archetype_id/value matches {/.*/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"KREG-HENSIKT", "KREG-LINJE","KREG-BEH-FOR">
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"Kreftmelding kolorektalkreft kjemoterapi dips">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0336"] = <
+					text = <"Pasient/behandlingsinstitusjon">
+					description = <"*">
+				>
+				["at0337"] = <
+					text = <"Behandling for">
+					description = <"*">
+				>
+				["at0339"] = <
+					text = <"Behandling for">
+					description = <"*">
+				>
+				["at0340"] = <
+					text = <"Primærsykdom - lokal/lokalavansert inkludert spredning til regionale lymfeknuter">
+					description = <"*">
+				>
+				["at0341"] = <
+					text = <"Primærsykdom - avansert sykdom (fjernspredning)">
+					description = <"*">
+				>
+				["at0342"] = <
+					text = <"Tilbakefall - lokal/lokalavansert sykdom inkludert spredning til regionale lymfeknuter">
+					description = <"*">
+				>
+				["at0343"] = <
+					text = <"Tilbakefall - avansert sykdom (fjernspredning)">
+					description = <"*">
+				>
+				["at0352"] = <
+					text = <"Spesifiser lokalisasjon">
+					description = <"*">
+				>
+				["at0353"] = <
+					text = <"Lokalisasjon av primærtumor	">
+					description = <"*">
+				>
+				["at0354"] = <
+					text = <"Kjemoterapi	">
+					description = <"*">
+				>
+				["at0355"] = <
+					text = <"Hensikten med behandlingsplanen">
+					description = <"*">
+				>
+				["at0357"] = <
+					text = <"Adjuvant kjemoterapi">
+					description = <"*">
+				>
+				["at0358"] = <
+					text = <"Strålesensitiviserende behandling">
+					description = <"*">
+				>
+				["at0359"] = <
+					text = <"Kjemoterapi før planlagt kirurgi">
+					description = <"*">
+				>
+				["at0360"] = <
+					text = <"Livsforlengende og lindrende behandling">
+					description = <"*">
+				>
+				["at0369"] = <
+					text = <"Startdato for behandlingen(dd.mm.åååå)">
+					description = <"*">
+				>
+				["at0370"] = <
+					text = <"Linje">
+					description = <"*">
+				>
+				["at0371"] = <
+					text = <"1.linje palliativ behandling">
+					description = <"*">
+				>
+				["at0372"] = <
+					text = <"2.linje palliativ behandling">
+					description = <"*">
+				>
+				["at0373"] = <
+					text = <"3.linje palliativ behandling">
+					description = <"*">
+				>
+				["at0374"] = <
+					text = <"Seinere palliativ linje">
+					description = <"*">
+				>
+				["at0379"] = <
+					text = <"Spesifiser årsak">
+					description = <"*">
+				>
+				["at0380"] = <
+					text = <"Medikamenter">
+					description = <"*">
+				>
+				["at0381"] = <
+					text = <"Årsak til skifte av behandling">
+					description = <"*">
+				>
+				["at0382"] = <
+					text = <"Medikamenter">
+					description = <"*">
+				>
+				["at0383"] = <
+					text = <"Kapecitabin">
+					description = <"*">
+				>
+				["at0385"] = <
+					text = <"5-FU">
+					description = <"*">
+				>
+				["at0387"] = <
+					text = <"Kalsiumfolinat">
+					description = <"*">
+				>
+				["at0389"] = <
+					text = <"Oksaliplatin">
+					description = <"*">
+				>
+				["at0391"] = <
+					text = <"Irinotecan">
+					description = <"*">
+				>
+				["at0393"] = <
+					text = <"VEGF-hemmer">
+					description = <"*">
+				>
+				["at0395"] = <
+					text = <"EGFR-hemmer">
+					description = <"*">
+				>
+				["at0397"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0399"] = <
+					text = <"Spesifiser medikament">
+					description = <"*">
+				>
+				["at0400"] = <
+					text = <"Kommentar">
+					description = <"*">
+				>
+				["at0401"] = <
+					text = <"Melder">
+					description = <"*">
+				>
+				["at0402"] = <
+					text = <"Lokalisasjon av metastaser">
+					description = <"*">
+				>
+				["at0403"] = <
+					text = <"Lever">
+					description = <"*">
+				>
+				["at0405"] = <
+					text = <"Lunge">
+					description = <"*">
+				>
+				["at0407"] = <
+					text = <"Peritoneum/peritoneal carcinomatose">
+					description = <"*">
+				>
+				["at0409"] = <
+					text = <"Skjelett">
+					description = <"*">
+				>
+				["at0411"] = <
+					text = <"Hjerne">
+					description = <"*">
+				>
+				["at0413"] = <
+					text = <"Lymfeknuter utenfor reseksjonsområdet">
+					description = <"*">
+				>
+				["at0415"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0417"] = <
+					text = <"Årsaker">
+					description = <"*">
+				>
+				["at0418"] = <
+					text = <"Bivirkninger/toksisitet">
+					description = <"*">
+				>
+				["at0420"] = <
+					text = <"Progresjon">
+					description = <"*">
+				>
+				["at0422"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0424"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0425"] = <
+					text = <"CEA">
+					description = <"*">
+				>
+				["at0426"] = <
+					text = <"ECOG">
+					description = <"*">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["KREG-HENSIKT"] = <
+			items = <
+				["at0357"] = <[KREG-HENSIKT::1]>
+				["at0358"] = <[KREG-HENSIKT::2]>
+				["at0359"] = <[KREG-HENSIKT::3]>
+				["at0360"] = <[KREG-HENSIKT::4]>
+			>
+		>
+		["KREG-LINJE"] = <
+			items = <
+				["at0371"] = <[KREG-LINJE::1]>
+				["at0372"] = <[KREG-LINJE::2]>
+				["at0373"] = <[KREG-LINJE::3]>
+				["at0374"] = <[KREG-LINJE::4]>
+			>
+		>
+		["KREG-BEH-FOR"] = <
+			items = <
+				["at0340"] = <[KREG-BEH-FOR::1]>
+				["at0341"] = <[KREG-BEH-FOR::2]>
+				["at0342"] = <[KREG-BEH-FOR::3]>
+				["at0343"] = <[KREG-BEH-FOR::4]>
+			>
+		>
+	>

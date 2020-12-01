@@ -1,0 +1,1671 @@
+{
+  "templateId": "kremt_crc_kjemoterapi_v2",
+  "version": "2.3",
+  "defaultLanguage": "nb",
+  "languages": [
+    "nb"
+  ],
+  "tree": {
+    "id": "kreftmelding_kolorektalkreft_dips",
+    "name": "Kreftmelding kolorektalkreft dips",
+    "localizedName": "Kreftmelding kolorektalkreft dips",
+    "rmType": "COMPOSITION",
+    "nodeId": "openEHR-EHR-COMPOSITION.kreftmelding_kolorektalkreft_dips.v1",
+    "min": 1,
+    "max": 1,
+    "localizedNames": {
+      "nb": "Kreftmelding kolorektalkreft dips"
+    },
+    "localizedDescriptions": {
+      "nb": "unknown"
+    },
+    "aqlPath": "",
+    "children": [
+      {
+        "id": "context",
+        "rmType": "EVENT_CONTEXT",
+        "nodeId": "",
+        "min": 1,
+        "max": 1,
+        "aqlPath": "/context",
+        "children": [
+          {
+            "id": "klar_til_sending",
+            "name": "Klar til sending",
+            "localizedName": "Klar til sending",
+            "rmType": "DV_BOOLEAN",
+            "nodeId": "at0003",
+            "min": 0,
+            "max": 1,
+            "localizedNames": {
+              "nb": "Klar til sending"
+            },
+            "localizedDescriptions": {
+              "nb": "*"
+            },
+            "aqlPath": "/context/other_context[at0001]/items[at0003]/value",
+            "inputs": [
+              {
+                "type": "BOOLEAN"
+              }
+            ]
+          },
+          {
+            "id": "meldingstype",
+            "name": "Meldingstype",
+            "localizedName": "Meldingstype",
+            "rmType": "DV_TEXT",
+            "nodeId": "at0002",
+            "min": 0,
+            "max": 1,
+            "localizedNames": {
+              "nb": "Meldingstype"
+            },
+            "localizedDescriptions": {
+              "nb": "*"
+            },
+            "aqlPath": "/context/other_context[at0001]/items[at0002]/value",
+            "inputs": [
+              {
+                "type": "TEXT"
+              }
+            ]
+          },
+          {
+            "id": "start_time",
+            "name": "Start_time",
+            "rmType": "DV_DATE_TIME",
+            "min": 1,
+            "max": 1,
+            "aqlPath": "/context/start_time",
+            "inputs": [
+              {
+                "type": "DATETIME"
+              }
+            ],
+            "inContext": true
+          },
+          {
+            "id": "setting",
+            "name": "Setting",
+            "rmType": "DV_CODED_TEXT",
+            "min": 1,
+            "max": 1,
+            "aqlPath": "/context/setting",
+            "inputs": [
+              {
+                "suffix": "code",
+                "type": "TEXT"
+              },
+              {
+                "suffix": "value",
+                "type": "TEXT"
+              }
+            ],
+            "inContext": true
+          }
+        ]
+      },
+      {
+        "id": "kreftmelding_kolorektalkreft_kjemoterapi_dips",
+        "name": "Kreftmelding kolorektalkreft kjemoterapi dips",
+        "localizedName": "Kreftmelding kolorektalkreft kjemoterapi dips",
+        "rmType": "OBSERVATION",
+        "nodeId": "openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1",
+        "min": 0,
+        "max": 1,
+        "localizedNames": {
+          "nb": "Kreftmelding kolorektalkreft kjemoterapi dips"
+        },
+        "localizedDescriptions": {
+          "nb": "unknown"
+        },
+        "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]",
+        "children": [
+          {
+            "id": "behandling_for",
+            "name": "Behandling for",
+            "localizedName": "Behandling for",
+            "rmType": "CLUSTER",
+            "nodeId": "at0337",
+            "min": 0,
+            "max": 1,
+            "localizedNames": {
+              "nb": "Behandling for"
+            },
+            "localizedDescriptions": {
+              "nb": "*"
+            },
+            "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0337]",
+            "children": [
+              {
+                "id": "behandling_for",
+                "name": "Behandling for",
+                "localizedName": "Behandling for",
+                "rmType": "DV_CODED_TEXT",
+                "nodeId": "at0339",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Behandling for"
+                },
+                "localizedDescriptions": {
+                  "nb": "*"
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0337]/items[at0339]/value",
+                "inputs": [
+                  {
+                    "suffix": "code",
+                    "type": "CODED_TEXT",
+                    "list": [
+                      {
+                        "value": "at0340",
+                        "label": "Primærsykdom - lokal/lokalavansert inkludert spredning til regionale lymfeknuter",
+                        "localizedLabels": {
+                          "nb": "Primærsykdom - lokal/lokalavansert inkludert spredning til regionale lymfeknuter"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-BEH-FOR": {
+                            "value": "[KREG-BEH-FOR::1]",
+                            "terminologyId": "KREG-BEH-FOR"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0341",
+                        "label": "Primærsykdom - avansert sykdom (fjernspredning)",
+                        "localizedLabels": {
+                          "nb": "Primærsykdom - avansert sykdom (fjernspredning)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-BEH-FOR": {
+                            "value": "[KREG-BEH-FOR::2]",
+                            "terminologyId": "KREG-BEH-FOR"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0342",
+                        "label": "Tilbakefall - lokal/lokalavansert sykdom inkludert spredning til regionale lymfeknuter",
+                        "localizedLabels": {
+                          "nb": "Tilbakefall - lokal/lokalavansert sykdom inkludert spredning til regionale lymfeknuter"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-BEH-FOR": {
+                            "value": "[KREG-BEH-FOR::3]",
+                            "terminologyId": "KREG-BEH-FOR"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0343",
+                        "label": "Tilbakefall - avansert sykdom (fjernspredning)",
+                        "localizedLabels": {
+                          "nb": "Tilbakefall - avansert sykdom (fjernspredning)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-BEH-FOR": {
+                            "value": "[KREG-BEH-FOR::4]",
+                            "terminologyId": "KREG-BEH-FOR"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "lokalisasjon_av_metastaser",
+                "name": "Lokalisasjon av metastaser",
+                "localizedName": "Lokalisasjon av metastaser",
+                "rmType": "DV_CODED_TEXT",
+                "nodeId": "at0402",
+                "min": 0,
+                "max": -1,
+                "localizedNames": {
+                  "nb": "Lokalisasjon av metastaser"
+                },
+                "localizedDescriptions": {
+                  "nb": "*"
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0337]/items[at0402]/value",
+                "inputs": [
+                  {
+                    "suffix": "code",
+                    "type": "CODED_TEXT",
+                    "list": [
+                      {
+                        "value": "at0403",
+                        "label": "Lever",
+                        "localizedLabels": {
+                          "nb": "Lever"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        }
+                      },
+                      {
+                        "value": "at0405",
+                        "label": "Lunge",
+                        "localizedLabels": {
+                          "nb": "Lunge"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        }
+                      },
+                      {
+                        "value": "at0407",
+                        "label": "Peritoneum/peritoneal carcinomatose",
+                        "localizedLabels": {
+                          "nb": "Peritoneum/peritoneal carcinomatose"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        }
+                      },
+                      {
+                        "value": "at0409",
+                        "label": "Skjelett",
+                        "localizedLabels": {
+                          "nb": "Skjelett"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        }
+                      },
+                      {
+                        "value": "at0411",
+                        "label": "Hjerne",
+                        "localizedLabels": {
+                          "nb": "Hjerne"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        }
+                      },
+                      {
+                        "value": "at0413",
+                        "label": "Lymfeknuter utenfor reseksjonsområdet",
+                        "localizedLabels": {
+                          "nb": "Lymfeknuter utenfor reseksjonsområdet"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        }
+                      },
+                      {
+                        "value": "at0415",
+                        "label": "Annet",
+                        "localizedLabels": {
+                          "nb": "Annet"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "spesifiser_lokalisasjon",
+                "name": "Spesifiser lokalisasjon",
+                "localizedName": "Spesifiser lokalisasjon",
+                "rmType": "DV_TEXT",
+                "nodeId": "at0352",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Spesifiser lokalisasjon"
+                },
+                "localizedDescriptions": {
+                  "nb": "*"
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0337]/items[at0352]/value",
+                "inputs": [
+                  {
+                    "type": "TEXT"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "lokalisasjon_av_primaertumor",
+            "name": "Lokalisasjon av primaertumor",
+            "localizedName": "Lokalisasjon av primaertumor",
+            "rmType": "CLUSTER",
+            "nodeId": "openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1",
+            "min": 0,
+            "max": 1,
+            "localizedNames": {
+              "nb": "Lokalisasjon av primaertumor"
+            },
+            "localizedDescriptions": {
+              "nb": "Cluster arketype som brukes i forbindelse med kolerekral kreftmelding. "
+            },
+            "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]",
+            "children": [
+              {
+                "id": "lokalisajon",
+                "name": "Lokalisajon",
+                "localizedName": "Lokalisajon",
+                "rmType": "DV_CODED_TEXT",
+                "nodeId": "at0001",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Lokalisajon"
+                },
+                "localizedDescriptions": {
+                  "nb": "Lokalisasjon av tumor "
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]/items[at0001]/value",
+                "inputs": [
+                  {
+                    "suffix": "code",
+                    "type": "CODED_TEXT",
+                    "list": [
+                      {
+                        "value": "at0002",
+                        "label": "Colon (C18-C19)",
+                        "localizedLabels": {
+                          "nb": "Colon (C18-C19)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-COLON": {
+                            "value": "[KREG-COLON::1]",
+                            "terminologyId": "KREG-COLON"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0003",
+                        "label": "Rectum (C20)",
+                        "localizedLabels": {
+                          "nb": "Rectum (C20)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-COLON": {
+                            "value": "[KREG-COLON::2]",
+                            "terminologyId": "KREG-COLON"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "spesifiser_lokalisajon_colon",
+                "name": "Spesifiser lokalisajon Colon",
+                "localizedName": "Spesifiser lokalisajon Colon",
+                "rmType": "DV_CODED_TEXT",
+                "nodeId": "at0004",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Spesifiser lokalisajon Colon"
+                },
+                "localizedDescriptions": {
+                  "nb": "Angir spesifikk lokalisasjon for Colon "
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]/items[at0004]/value",
+                "inputs": [
+                  {
+                    "suffix": "code",
+                    "type": "CODED_TEXT",
+                    "list": [
+                      {
+                        "value": "at0006",
+                        "label": "Cøkum (C18.0)",
+                        "localizedLabels": {
+                          "nb": "Cøkum (C18.0)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-COLON": {
+                            "value": "[KREG-COLON::180]",
+                            "terminologyId": "KREG-COLON"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0007",
+                        "label": "Appendix (C18.1)",
+                        "localizedLabels": {
+                          "nb": "Appendix (C18.1)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-COLON": {
+                            "value": "[KREG-COLON::181]",
+                            "terminologyId": "KREG-COLON"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0008",
+                        "label": "Ascendens (C18.2)",
+                        "localizedLabels": {
+                          "nb": "Ascendens (C18.2)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-COLON": {
+                            "value": "[KREG-COLON::182]",
+                            "terminologyId": "KREG-COLON"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0009",
+                        "label": "Høyre fleksur (C18.3)",
+                        "localizedLabels": {
+                          "nb": "Høyre fleksur (C18.3)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-COLON": {
+                            "value": "[KREG-COLON::183]",
+                            "terminologyId": "KREG-COLON"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0010",
+                        "label": "Transversum (C18.4)",
+                        "localizedLabels": {
+                          "nb": "Transversum (C18.4)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-COLON": {
+                            "value": "[KREG-COLON::184]",
+                            "terminologyId": "KREG-COLON"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0011",
+                        "label": "Venstre fleksur (C18.5)",
+                        "localizedLabels": {
+                          "nb": "Venstre fleksur (C18.5)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-COLON": {
+                            "value": "[KREG-COLON::185]",
+                            "terminologyId": "KREG-COLON"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0012",
+                        "label": "Descendens (C18.6)",
+                        "localizedLabels": {
+                          "nb": "Descendens (C18.6)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-COLON": {
+                            "value": "[KREG-COLON::186]",
+                            "terminologyId": "KREG-COLON"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0013",
+                        "label": "Sigmoideum, ≥ 20 cm (C18.7)",
+                        "localizedLabels": {
+                          "nb": "Sigmoideum, ≥ 20 cm (C18.7)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-COLON": {
+                            "value": "[KREG-COLON::187]",
+                            "terminologyId": "KREG-COLON"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0014",
+                        "label": "Tykktarm, overlappende (C18.8)",
+                        "localizedLabels": {
+                          "nb": "Tykktarm, overlappende (C18.8)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-COLON": {
+                            "value": "[KREG-COLON::188]",
+                            "terminologyId": "KREG-COLON"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0015",
+                        "label": "Tykktarm uspesifisert (C18.9)",
+                        "localizedLabels": {
+                          "nb": "Tykktarm uspesifisert (C18.9)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-COLON": {
+                            "value": "[KREG-COLON::189]",
+                            "terminologyId": "KREG-COLON"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0016",
+                        "label": "Rectosigmoid ≥ 16 og < 20 cm (C19)",
+                        "localizedLabels": {
+                          "nb": "Rectosigmoid ≥ 16 og < 20 cm (C19)"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-COLON": {
+                            "value": "[KREG-COLON::199]",
+                            "terminologyId": "KREG-COLON"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "angi_avstand_fra_analåpning_til_nedre_kant_av_tumor_målt_på_stivt_skop",
+                "name": "Angi avstand fra analåpning til nedre kant av tumor (målt på stivt skop)",
+                "localizedName": "Angi avstand fra analåpning til nedre kant av tumor (målt på stivt skop)",
+                "rmType": "DV_QUANTITY",
+                "nodeId": "at0026",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Angi avstand fra analåpning til nedre kant av tumor (målt på stivt skop)"
+                },
+                "localizedDescriptions": {
+                  "nb": "Angir avstand fra analåpning til nedre kant av tumor (målt på stivt skop)"
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]/items[at0026]/value",
+                "inputs": [
+                  {
+                    "suffix": "magnitude",
+                    "type": "DECIMAL",
+                    "validation": {
+                      "range": {
+                        "minOp": ">=",
+                        "min": 0.0,
+                        "maxOp": "<=",
+                        "max": 99.0
+                      },
+                      "precision": {
+                        "minOp": ">=",
+                        "min": 1,
+                        "maxOp": "<=",
+                        "max": 1
+                      }
+                    }
+                  },
+                  {
+                    "suffix": "unit",
+                    "type": "CODED_TEXT",
+                    "list": [
+                      {
+                        "value": "cm",
+                        "label": "cm",
+                        "validation": {
+                          "range": {
+                            "minOp": ">=",
+                            "min": 0.0,
+                            "maxOp": "<=",
+                            "max": 99.0
+                          },
+                          "precision": {
+                            "minOp": ">=",
+                            "min": 1,
+                            "maxOp": "<=",
+                            "max": 1
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "ukjent",
+                "name": "Ukjent",
+                "localizedName": "Ukjent",
+                "rmType": "DV_BOOLEAN",
+                "nodeId": "at0033",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Ukjent"
+                },
+                "localizedDescriptions": {
+                  "nb": "Avstand ukjent. "
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]/items[at0033]/value",
+                "inputs": [
+                  {
+                    "type": "BOOLEAN"
+                  }
+                ]
+              },
+              {
+                "id": "avstand_fra_øvre_kant_av_m.puborektalis_til_nedre_kant_av_tumor_målt_ved_mr",
+                "name": "Avstand fra øvre kant av M.puborektalis til nedre kant av tumor (målt ved MR)",
+                "localizedName": "Avstand fra øvre kant av M.puborektalis til nedre kant av tumor (målt ved MR)",
+                "rmType": "DV_QUANTITY",
+                "nodeId": "at0034",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Avstand fra øvre kant av M.puborektalis til nedre kant av tumor (målt ved MR)"
+                },
+                "localizedDescriptions": {
+                  "nb": "Angir avstand fra øvre kant av M.puborektalis til nedre kant av tumor (målt ved MR)"
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]/items[at0034]/value",
+                "inputs": [
+                  {
+                    "suffix": "magnitude",
+                    "type": "DECIMAL",
+                    "validation": {
+                      "range": {
+                        "minOp": ">=",
+                        "min": 0.0,
+                        "maxOp": "<=",
+                        "max": 99.0
+                      },
+                      "precision": {
+                        "minOp": ">=",
+                        "min": 2,
+                        "maxOp": "<=",
+                        "max": 2
+                      }
+                    }
+                  },
+                  {
+                    "suffix": "unit",
+                    "type": "CODED_TEXT",
+                    "list": [
+                      {
+                        "value": "cm",
+                        "label": "cm",
+                        "validation": {
+                          "range": {
+                            "minOp": ">=",
+                            "min": 0.0,
+                            "maxOp": "<=",
+                            "max": 99.0
+                          },
+                          "precision": {
+                            "minOp": ">=",
+                            "min": 2,
+                            "maxOp": "<=",
+                            "max": 2
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "ukjent2",
+                "name": "Ukjent",
+                "localizedName": "Ukjent",
+                "rmType": "DV_BOOLEAN",
+                "nodeId": "at0032",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Ukjent"
+                },
+                "localizedDescriptions": {
+                  "nb": "Avstand ukjent. "
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]/items[at0032]/value",
+                "inputs": [
+                  {
+                    "type": "BOOLEAN"
+                  }
+                ]
+              },
+              {
+                "id": "klinisk_sikker_kreft",
+                "name": "Klinisk sikker kreft",
+                "localizedName": "Klinisk sikker kreft",
+                "rmType": "DV_CODED_TEXT",
+                "nodeId": "at0021",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Klinisk sikker kreft"
+                },
+                "localizedDescriptions": {
+                  "nb": "Angir informasjon om kreft er klinisk sikker. "
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1]/items[at0021]/value",
+                "inputs": [
+                  {
+                    "suffix": "code",
+                    "type": "CODED_TEXT",
+                    "list": [
+                      {
+                        "value": "at0022",
+                        "label": "Ja",
+                        "localizedLabels": {
+                          "nb": "Ja"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        }
+                      },
+                      {
+                        "value": "at0023",
+                        "label": "Usikker",
+                        "localizedLabels": {
+                          "nb": "Usikker"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "kjemoterapi",
+            "name": "Kjemoterapi",
+            "localizedName": "Kjemoterapi",
+            "rmType": "CLUSTER",
+            "nodeId": "at0354",
+            "min": 0,
+            "max": 1,
+            "localizedNames": {
+              "nb": "Kjemoterapi"
+            },
+            "localizedDescriptions": {
+              "nb": "*"
+            },
+            "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]",
+            "children": [
+              {
+                "id": "hensikten_med_behandlingsplanen",
+                "name": "Hensikten med behandlingsplanen",
+                "localizedName": "Hensikten med behandlingsplanen",
+                "rmType": "DV_CODED_TEXT",
+                "nodeId": "at0355",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Hensikten med behandlingsplanen"
+                },
+                "localizedDescriptions": {
+                  "nb": "*"
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[at0355]/value",
+                "inputs": [
+                  {
+                    "suffix": "code",
+                    "type": "CODED_TEXT",
+                    "list": [
+                      {
+                        "value": "at0357",
+                        "label": "Adjuvant kjemoterapi",
+                        "localizedLabels": {
+                          "nb": "Adjuvant kjemoterapi"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-HENSIKT": {
+                            "value": "[KREG-HENSIKT::1]",
+                            "terminologyId": "KREG-HENSIKT"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0358",
+                        "label": "Strålesensitiviserende behandling",
+                        "localizedLabels": {
+                          "nb": "Strålesensitiviserende behandling"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-HENSIKT": {
+                            "value": "[KREG-HENSIKT::2]",
+                            "terminologyId": "KREG-HENSIKT"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0359",
+                        "label": "Kjemoterapi før planlagt kirurgi",
+                        "localizedLabels": {
+                          "nb": "Kjemoterapi før planlagt kirurgi"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-HENSIKT": {
+                            "value": "[KREG-HENSIKT::3]",
+                            "terminologyId": "KREG-HENSIKT"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0360",
+                        "label": "Livsforlengende og lindrende behandling",
+                        "localizedLabels": {
+                          "nb": "Livsforlengende og lindrende behandling"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-HENSIKT": {
+                            "value": "[KREG-HENSIKT::4]",
+                            "terminologyId": "KREG-HENSIKT"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "cea",
+                "name": "Cea",
+                "localizedName": "Cea",
+                "rmType": "CLUSTER",
+                "nodeId": "openEHR-EHR-CLUSTER.kreftmelding_kolorektal_cea_dips.v1",
+                "min": 0,
+                "max": -1,
+                "localizedNames": {
+                  "nb": "Cea"
+                },
+                "localizedDescriptions": {
+                  "nb": "CEA cluster arketype"
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_cea_dips.v1]",
+                "children": [
+                  {
+                    "id": "cea",
+                    "name": "CEA",
+                    "localizedName": "CEA",
+                    "rmType": "DV_QUANTITY",
+                    "nodeId": "at0001",
+                    "min": 0,
+                    "max": 1,
+                    "localizedNames": {
+                      "nb": "CEA"
+                    },
+                    "localizedDescriptions": {
+                      "nb": "CEA score. "
+                    },
+                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_cea_dips.v1]/items[at0001]/value",
+                    "inputs": [
+                      {
+                        "suffix": "magnitude",
+                        "type": "DECIMAL",
+                        "validation": {
+                          "range": {
+                            "minOp": ">=",
+                            "min": 0.0,
+                            "maxOp": "<=",
+                            "max": 100.0
+                          },
+                          "precision": {
+                            "minOp": ">=",
+                            "min": 1,
+                            "maxOp": "<=",
+                            "max": 1
+                          }
+                        }
+                      },
+                      {
+                        "suffix": "unit",
+                        "type": "CODED_TEXT",
+                        "list": [
+                          {
+                            "value": "µg/L",
+                            "label": "µg/L",
+                            "validation": {
+                              "range": {
+                                "minOp": ">=",
+                                "min": 0.0,
+                                "maxOp": "<=",
+                                "max": 100.0
+                              },
+                              "precision": {
+                                "minOp": ">=",
+                                "min": 1,
+                                "maxOp": "<=",
+                                "max": 1
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "ikke_tatt",
+                    "name": "Ikke tatt",
+                    "localizedName": "Ikke tatt",
+                    "rmType": "DV_BOOLEAN",
+                    "nodeId": "at0002",
+                    "min": 0,
+                    "max": 1,
+                    "localizedNames": {
+                      "nb": "Ikke tatt"
+                    },
+                    "localizedDescriptions": {
+                      "nb": "Krysses av dersom CEA ikke er tatt. "
+                    },
+                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_cea_dips.v1]/items[at0002]/value",
+                    "inputs": [
+                      {
+                        "type": "BOOLEAN",
+                        "list": [
+                          {
+                            "value": "true",
+                            "label": "true"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "ecog_funksjonsstatus",
+                "name": "Ecog funksjonsstatus",
+                "localizedName": "Ecog funksjonsstatus",
+                "rmType": "CLUSTER",
+                "nodeId": "openEHR-EHR-CLUSTER.kreftmelding_kolorektal_ecog_funksjonsstatus_dips.v1",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Ecog funksjonsstatus"
+                },
+                "localizedDescriptions": {
+                  "nb": "unknown"
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_ecog_funksjonsstatus_dips.v1]",
+                "children": [
+                  {
+                    "id": "ecog_funksjonsstatus",
+                    "name": "ECOG funksjonsstatus",
+                    "localizedName": "ECOG funksjonsstatus",
+                    "rmType": "DV_CODED_TEXT",
+                    "nodeId": "at0001",
+                    "min": 0,
+                    "max": 1,
+                    "localizedNames": {
+                      "nb": "ECOG funksjonsstatus"
+                    },
+                    "localizedDescriptions": {
+                      "nb": "Angir ecog funksjonsstatus"
+                    },
+                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_ecog_funksjonsstatus_dips.v1]/items[at0001]/value",
+                    "inputs": [
+                      {
+                        "suffix": "code",
+                        "type": "CODED_TEXT",
+                        "list": [
+                          {
+                            "value": "at0002",
+                            "label": "0 - Full daglig aktivitet",
+                            "localizedLabels": {
+                              "nb": "0 - Full daglig aktivitet"
+                            },
+                            "localizedDescriptions": {
+                              "nb": ""
+                            }
+                          },
+                          {
+                            "value": "at0003",
+                            "label": "1 - Oppegående",
+                            "localizedLabels": {
+                              "nb": "1 - Oppegående"
+                            },
+                            "localizedDescriptions": {
+                              "nb": ""
+                            }
+                          },
+                          {
+                            "value": "at0004",
+                            "label": "2 - Sengeliggende < 50 % av dagtid",
+                            "localizedLabels": {
+                              "nb": "2 - Sengeliggende < 50 % av dagtid"
+                            },
+                            "localizedDescriptions": {
+                              "nb": ""
+                            }
+                          },
+                          {
+                            "value": "at0005",
+                            "label": "3 - Sengeliggende > 50 % av dagtid",
+                            "localizedLabels": {
+                              "nb": "3 - Sengeliggende > 50 % av dagtid"
+                            },
+                            "localizedDescriptions": {
+                              "nb": ""
+                            }
+                          },
+                          {
+                            "value": "at0006",
+                            "label": "4 - Helt sengeliggende",
+                            "localizedLabels": {
+                              "nb": "4 - Helt sengeliggende"
+                            },
+                            "localizedDescriptions": {
+                              "nb": ""
+                            }
+                          },
+                          {
+                            "value": "at0007",
+                            "label": "Ukjent",
+                            "localizedLabels": {
+                              "nb": "Ukjent"
+                            },
+                            "localizedDescriptions": {
+                              "nb": ""
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "startdato_for_behandlingen_dd.mm.åååå",
+                "name": "Startdato for behandlingen(dd.mm.åååå)",
+                "localizedName": "Startdato for behandlingen(dd.mm.åååå)",
+                "rmType": "DV_DATE_TIME",
+                "nodeId": "at0369",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Startdato for behandlingen(dd.mm.åååå)"
+                },
+                "localizedDescriptions": {
+                  "nb": "*"
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[at0369]/value",
+                "inputs": [
+                  {
+                    "type": "DATETIME"
+                  }
+                ]
+              },
+              {
+                "id": "linje",
+                "name": "Linje",
+                "localizedName": "Linje",
+                "rmType": "DV_CODED_TEXT",
+                "nodeId": "at0370",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Linje"
+                },
+                "localizedDescriptions": {
+                  "nb": "*"
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[at0370]/value",
+                "inputs": [
+                  {
+                    "suffix": "code",
+                    "type": "CODED_TEXT",
+                    "list": [
+                      {
+                        "value": "at0371",
+                        "label": "1.linje palliativ behandling",
+                        "localizedLabels": {
+                          "nb": "1.linje palliativ behandling"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-LINJE": {
+                            "value": "[KREG-LINJE::1]",
+                            "terminologyId": "KREG-LINJE"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0372",
+                        "label": "2.linje palliativ behandling",
+                        "localizedLabels": {
+                          "nb": "2.linje palliativ behandling"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-LINJE": {
+                            "value": "[KREG-LINJE::2]",
+                            "terminologyId": "KREG-LINJE"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0373",
+                        "label": "3.linje palliativ behandling",
+                        "localizedLabels": {
+                          "nb": "3.linje palliativ behandling"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-LINJE": {
+                            "value": "[KREG-LINJE::3]",
+                            "terminologyId": "KREG-LINJE"
+                          }
+                        }
+                      },
+                      {
+                        "value": "at0374",
+                        "label": "Seinere palliativ linje",
+                        "localizedLabels": {
+                          "nb": "Seinere palliativ linje"
+                        },
+                        "localizedDescriptions": {
+                          "nb": "*"
+                        },
+                        "termBindings": {
+                          "KREG-LINJE": {
+                            "value": "[KREG-LINJE::4]",
+                            "terminologyId": "KREG-LINJE"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "årsak_til_skifte_av_behandling",
+                "name": "Årsak til skifte av behandling",
+                "localizedName": "Årsak til skifte av behandling",
+                "rmType": "CLUSTER",
+                "nodeId": "at0381",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Årsak til skifte av behandling"
+                },
+                "localizedDescriptions": {
+                  "nb": "*"
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[at0381]",
+                "children": [
+                  {
+                    "id": "årsaker",
+                    "name": "Årsaker",
+                    "localizedName": "Årsaker",
+                    "rmType": "DV_CODED_TEXT",
+                    "nodeId": "at0417",
+                    "min": 0,
+                    "max": -1,
+                    "localizedNames": {
+                      "nb": "Årsaker"
+                    },
+                    "localizedDescriptions": {
+                      "nb": "*"
+                    },
+                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[at0381]/items[at0417]/value",
+                    "inputs": [
+                      {
+                        "suffix": "code",
+                        "type": "CODED_TEXT",
+                        "list": [
+                          {
+                            "value": "at0418",
+                            "label": "Bivirkninger/toksisitet",
+                            "localizedLabels": {
+                              "nb": "Bivirkninger/toksisitet"
+                            },
+                            "localizedDescriptions": {
+                              "nb": "*"
+                            }
+                          },
+                          {
+                            "value": "at0420",
+                            "label": "Progresjon",
+                            "localizedLabels": {
+                              "nb": "Progresjon"
+                            },
+                            "localizedDescriptions": {
+                              "nb": "*"
+                            }
+                          },
+                          {
+                            "value": "at0422",
+                            "label": "Annet",
+                            "localizedLabels": {
+                              "nb": "Annet"
+                            },
+                            "localizedDescriptions": {
+                              "nb": "*"
+                            }
+                          },
+                          {
+                            "value": "at0424",
+                            "label": "Ukjent",
+                            "localizedLabels": {
+                              "nb": "Ukjent"
+                            },
+                            "localizedDescriptions": {
+                              "nb": "*"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "spesifiser_årsak",
+                    "name": "Spesifiser årsak",
+                    "localizedName": "Spesifiser årsak",
+                    "rmType": "DV_TEXT",
+                    "nodeId": "at0379",
+                    "min": 0,
+                    "max": 1,
+                    "localizedNames": {
+                      "nb": "Spesifiser årsak"
+                    },
+                    "localizedDescriptions": {
+                      "nb": "*"
+                    },
+                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[at0381]/items[at0379]/value",
+                    "inputs": [
+                      {
+                        "type": "TEXT"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "medikamenter",
+                "name": "Medikamenter",
+                "localizedName": "Medikamenter",
+                "rmType": "CLUSTER",
+                "nodeId": "at0380",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Medikamenter"
+                },
+                "localizedDescriptions": {
+                  "nb": "*"
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[at0380]",
+                "children": [
+                  {
+                    "id": "medikamenter",
+                    "name": "Medikamenter",
+                    "localizedName": "Medikamenter",
+                    "rmType": "DV_CODED_TEXT",
+                    "nodeId": "at0382",
+                    "min": 0,
+                    "max": -1,
+                    "localizedNames": {
+                      "nb": "Medikamenter"
+                    },
+                    "localizedDescriptions": {
+                      "nb": "*"
+                    },
+                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[at0380]/items[at0382]/value",
+                    "inputs": [
+                      {
+                        "suffix": "code",
+                        "type": "CODED_TEXT",
+                        "list": [
+                          {
+                            "value": "at0383",
+                            "label": "Kapecitabin",
+                            "localizedLabels": {
+                              "nb": "Kapecitabin"
+                            },
+                            "localizedDescriptions": {
+                              "nb": "*"
+                            }
+                          },
+                          {
+                            "value": "at0385",
+                            "label": "5-FU",
+                            "localizedLabels": {
+                              "nb": "5-FU"
+                            },
+                            "localizedDescriptions": {
+                              "nb": "*"
+                            }
+                          },
+                          {
+                            "value": "at0387",
+                            "label": "Kalsiumfolinat",
+                            "localizedLabels": {
+                              "nb": "Kalsiumfolinat"
+                            },
+                            "localizedDescriptions": {
+                              "nb": "*"
+                            }
+                          },
+                          {
+                            "value": "at0389",
+                            "label": "Oksaliplatin",
+                            "localizedLabels": {
+                              "nb": "Oksaliplatin"
+                            },
+                            "localizedDescriptions": {
+                              "nb": "*"
+                            }
+                          },
+                          {
+                            "value": "at0391",
+                            "label": "Irinotecan",
+                            "localizedLabels": {
+                              "nb": "Irinotecan"
+                            },
+                            "localizedDescriptions": {
+                              "nb": "*"
+                            }
+                          },
+                          {
+                            "value": "at0393",
+                            "label": "VEGF-hemmer",
+                            "localizedLabels": {
+                              "nb": "VEGF-hemmer"
+                            },
+                            "localizedDescriptions": {
+                              "nb": "*"
+                            }
+                          },
+                          {
+                            "value": "at0395",
+                            "label": "EGFR-hemmer",
+                            "localizedLabels": {
+                              "nb": "EGFR-hemmer"
+                            },
+                            "localizedDescriptions": {
+                              "nb": "*"
+                            }
+                          },
+                          {
+                            "value": "at0397",
+                            "label": "Annet",
+                            "localizedLabels": {
+                              "nb": "Annet"
+                            },
+                            "localizedDescriptions": {
+                              "nb": "*"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "spesifiser_medikament",
+                    "name": "Spesifiser medikament",
+                    "localizedName": "Spesifiser medikament",
+                    "rmType": "DV_TEXT",
+                    "nodeId": "at0399",
+                    "min": 0,
+                    "max": 1,
+                    "localizedNames": {
+                      "nb": "Spesifiser medikament"
+                    },
+                    "localizedDescriptions": {
+                      "nb": "*"
+                    },
+                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[at0380]/items[at0399]/value",
+                    "inputs": [
+                      {
+                        "type": "TEXT"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "melder",
+            "name": "Melder",
+            "localizedName": "Melder",
+            "rmType": "CLUSTER",
+            "nodeId": "openEHR-EHR-CLUSTER.kreftmelding_kolorektal_melder_dips.v1",
+            "min": 0,
+            "max": 1,
+            "localizedNames": {
+              "nb": "Melder"
+            },
+            "localizedDescriptions": {
+              "nb": "Melder cluster arketype til bruk i kreftmelding"
+            },
+            "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_melder_dips.v1]",
+            "children": [
+              {
+                "id": "meldedato",
+                "name": "Meldedato",
+                "localizedName": "Meldedato",
+                "rmType": "DV_DATE",
+                "nodeId": "at0001",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Meldedato"
+                },
+                "localizedDescriptions": {
+                  "nb": "Angir medledato for meldingen. "
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_melder_dips.v1]/items[at0001]/value",
+                "inputs": [
+                  {
+                    "type": "DATE"
+                  }
+                ]
+              },
+              {
+                "id": "melders_navn",
+                "name": "Melders navn",
+                "localizedName": "Melders navn",
+                "rmType": "DV_TEXT",
+                "nodeId": "at0002",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Melders navn"
+                },
+                "localizedDescriptions": {
+                  "nb": "Angir medlers navn. "
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_melder_dips.v1]/items[at0002]/value",
+                "inputs": [
+                  {
+                    "type": "TEXT"
+                  }
+                ]
+              },
+              {
+                "id": "melder_id",
+                "name": "Melder ID",
+                "localizedName": "Melder ID",
+                "rmType": "DV_TEXT",
+                "nodeId": "at0003",
+                "min": 0,
+                "max": 1,
+                "localizedNames": {
+                  "nb": "Melder ID"
+                },
+                "localizedDescriptions": {
+                  "nb": "Angir melder ID. "
+                },
+                "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.kreftmelding_kolorektal_melder_dips.v1]/items[at0003]/value",
+                "inputs": [
+                  {
+                    "type": "TEXT"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "time",
+            "name": "Time",
+            "rmType": "DV_DATE_TIME",
+            "min": 1,
+            "max": 1,
+            "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/data[at0001]/events[at0002]/time",
+            "inputs": [
+              {
+                "type": "DATETIME"
+              }
+            ],
+            "inContext": true
+          },
+          {
+            "id": "language",
+            "name": "Language",
+            "rmType": "CODE_PHRASE",
+            "min": 1,
+            "max": 1,
+            "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/language",
+            "inContext": true
+          },
+          {
+            "id": "encoding",
+            "name": "Encoding",
+            "rmType": "CODE_PHRASE",
+            "min": 1,
+            "max": 1,
+            "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/encoding",
+            "inContext": true
+          },
+          {
+            "id": "subject",
+            "name": "Subject",
+            "rmType": "PARTY_PROXY",
+            "min": 1,
+            "max": 1,
+            "aqlPath": "/content[openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1]/subject",
+            "inContext": true
+          }
+        ]
+      },
+      {
+        "id": "category",
+        "rmType": "DV_CODED_TEXT",
+        "nodeId": "",
+        "min": 1,
+        "max": 1,
+        "aqlPath": "/category",
+        "inputs": [
+          {
+            "suffix": "code",
+            "type": "CODED_TEXT",
+            "list": [
+              {
+                "value": "433",
+                "localizedLabels": {
+                  "nb": ""
+                }
+              }
+            ],
+            "terminology": "openehr"
+          }
+        ],
+        "inContext": true
+      },
+      {
+        "id": "language",
+        "name": "Language",
+        "rmType": "CODE_PHRASE",
+        "min": 1,
+        "max": 1,
+        "aqlPath": "/language",
+        "inContext": true
+      },
+      {
+        "id": "territory",
+        "name": "Territory",
+        "rmType": "CODE_PHRASE",
+        "min": 1,
+        "max": 1,
+        "aqlPath": "/territory",
+        "inContext": true
+      },
+      {
+        "id": "composer",
+        "name": "Composer",
+        "rmType": "PARTY_PROXY",
+        "min": 1,
+        "max": 1,
+        "aqlPath": "/composer",
+        "inContext": true
+      }
+    ]
+  }
+}

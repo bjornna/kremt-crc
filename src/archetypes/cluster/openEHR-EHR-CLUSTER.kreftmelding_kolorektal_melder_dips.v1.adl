@@ -1,0 +1,73 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.kreftmelding_kolorektal_melder_dips.v1
+
+concept
+	[at0000]	-- Melder
+language
+	original_language = <[ISO_639-1::nb]>
+description
+	original_author = <
+		["name"] = <"Borisa Barisa ">
+		["email"] = <"boba@dips.no">
+		["organisation"] = <"DIPS AS, Norway ">
+		["date"] = <"2020-01-03">
+	>
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"Cluster arketype som brukes i forbindelse med kolerekral kreft melding. ">
+			use = <"Brukes som cluster arketype i kolorektal kreftmelding. ">
+			misuse = <"Alt annet utover det som er definert under bruk. ">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <"Morten Pavicevic Hørthe, DIPS AS, Norway ", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"CBE8929922FE433126EC95889A42E6B4">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Melder
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Meldedato
+				value matches {
+					DV_DATE matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Melders navn 
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Melder ID
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"Melder">
+					description = <"Melder cluster arketype til bruk i kreftmelding">
+				>
+				["at0001"] = <
+					text = <"Meldedato">
+					description = <"Angir medledato for meldingen. ">
+				>
+				["at0002"] = <
+					text = <"Melders navn ">
+					description = <"Angir medlers navn. ">
+				>
+				["at0003"] = <
+					text = <"Melder ID">
+					description = <"Angir melder ID. ">
+				>
+			>
+		>
+	>

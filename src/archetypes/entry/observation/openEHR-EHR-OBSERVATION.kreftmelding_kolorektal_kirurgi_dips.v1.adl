@@ -1,0 +1,1439 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.kreftmelding_kolorektal_kirurgi_dips.v1
+
+concept
+	[at0000]	-- Kolorektal kreftmelding for kirurgi
+language
+	original_language = <[ISO_639-1::nb]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"Er laget for å dekke meldeskjema for kirurgi til kreftregisteret i DIPS ARENA. Denne arketypen er laget etter kravpekk dokumentasjon_colorectal_v3.0 fra kreftregisteret.
+">
+			use = <"Skal kun brukes i kreftmelding kirurgi til kreftregisteret sitt kolorektalkreft register i DIPS ARENA. ">
+			misuse = <"Skal ikke brukes til noen andre formål enn beskrevet over.
+">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"E7A983349E95A65FD65B175F16B9C477">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Kolorektal kreftmelding for kirurgi
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Behandlingen var rettet mot
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005, 	-- Primærtumor (med eller uten metastase(r))
+													at0006, 	-- Lokalt residiv (med eller uten metastase(r))
+													at0007]	-- Kun metastase(r)
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0242] occurrences matches {0..*} matches {	-- Lokalisasjon av primærtumor
+										include
+											archetype_id/value matches {/.*/}
+									}
+									CLUSTER[at0010] occurrences matches {0..1} matches {	-- Forbehandling
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0259] occurrences matches {0..*} matches {	-- Forbehandling
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0260, 	-- Ingen
+															at0261, 	-- Kjemoterapi
+															at0262, 	-- Strålebehandling
+															at0263, 	-- Strålebehandling med kjemoterapi
+															at0264, 	-- Avlastende stomi
+															at0265, 	-- Stenting
+															at0266, 	-- Annet
+															at0267]	-- Ukjent
+														}
+													}
+												}
+											}
+											ELEMENT[at0022] occurrences matches {0..1} matches {	-- Spesifiser forbehandling annet
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0023] occurrences matches {0..1} matches {	-- Siktemål for behandlingen/preoperativ intensjon		
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0024] matches {	-- Siktemål for behandlingen/preoperativ intensjon
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0025, 	-- Kurativ
+															at0026, 	-- Palliativ
+															at0027]	-- Ikke avklart
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0028] occurrences matches {0..1} matches {	-- Kirurgi av primærtumor
+										items cardinality matches {1..*; unordered} matches {
+											CLUSTER[at0275] occurrences matches {0..1} matches {	-- Hastegrad
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0029] matches {	-- Hastegrad
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0030, 	-- Elektiv
+																	at0031, 	-- Akutt pga obstruksjon
+																	at0032, 	-- Akutt pga perforasjon
+																	at0033]	-- Akutt pga annet
+																}
+															}
+														}
+													}
+													ELEMENT[at0034] occurrences matches {0..1} matches {	-- Spesifiser hastegrad annet
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+											ELEMENT[at0035] occurrences matches {0..1} matches {	-- ASA-score
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0036, 	-- I - Frisk pasient
+															at0037, 	-- II - Pasient med mild systemsykdom
+															at0038, 	-- III - Pasient med alvorlig systemsykdom som ikke gir nedsatt funksjon
+															at0039, 	-- IV - Pasient med alvorlig systemsykdom som er livstruende
+															at0040]	-- V - Moribund pasient som ikke vil overleve 24 t med eller uten kirurgi
+														}
+													}
+												}
+											}
+											CLUSTER[at0041] occurrences matches {0..1} matches {	-- Kliniske parametre
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0046] occurrences matches {0..1} matches {	-- Høyde (cm)
+														value matches {
+															C_DV_QUANTITY <
+																property = <[openehr::122]>
+																list = <
+																	["1"] = <
+																		units = <"cm">
+																		magnitude = <|0.0..270.0|>
+																		precision = <|0|>
+																	>
+																>
+															>
+														}
+													}
+													ELEMENT[at0048] occurrences matches {0..1} matches {	-- Høyde Ukjent
+														value matches {
+															DV_BOOLEAN matches {
+																value matches {True, False}
+															}
+														}
+													}
+													ELEMENT[at0047] occurrences matches {0..1} matches {	-- Vekt (kg)
+														value matches {
+															C_DV_QUANTITY <
+																property = <[openehr::124]>
+																list = <
+																	["1"] = <
+																		units = <"kg">
+																		magnitude = <|0.0..600.0|>
+																		precision = <|0|>
+																	>
+																>
+															>
+														}
+													}
+													ELEMENT[at0049] occurrences matches {0..1} matches {	-- Vekt Ukjent
+														value matches {
+															DV_BOOLEAN matches {
+																value matches {True, False}
+															}
+														}
+													}
+													ELEMENT[at0255] occurrences matches {0..1} matches {	-- BMI
+														value matches {
+															C_DV_QUANTITY <
+																property = <[openehr::350]>
+																list = <
+																	["1"] = <
+																		units = <"kg/m3">
+																		magnitude = <|>=0.0|>
+																		precision = <|1|>
+																	>
+																>
+															>
+														}
+													}
+													ELEMENT[at0050] occurrences matches {0..1} matches {	-- BMI Ukjent
+														value matches {
+															DV_BOOLEAN matches {
+																value matches {True, False}
+															}
+														}
+													}
+												}
+											}
+											ELEMENT[at0051] occurrences matches {0..1} matches {	-- Type kirurgi
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0052, 	-- Åpen
+															at0053, 	-- Laparoskopisk
+															at0054]	-- Laparoskopisk, konvertert åpen
+														}
+													}
+												}
+											}
+											ELEMENT[at0056] occurrences matches {0..1} matches {	-- Operasjonsdato
+												value matches {
+													DV_DATE matches {*}
+												}
+											}
+											ELEMENT[at0279] occurrences matches {0..1} matches {	-- Reseksjon av tumor
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											CLUSTER[at0276] occurrences matches {0..1} matches {	-- Inngrep colon
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0060] occurrences matches {0..1} matches {	-- Inngrep colon
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0061, 	-- Høyresidig hemicolectomi
+																	at0062, 	-- Venstresidig hemicolectomi
+																	at0063, 	-- Utvidet høyresidig hemicolectomi
+																	at0064, 	-- Utvidet venstresidig hemicolectomi
+																	at0065, 	-- Transversumreseksjon
+																	at0066, 	-- Transversum fleksurreseksjon
+																	at0067, 	-- Sigmoidreseksjon (ev. inkludert Hartmann)
+																	at0068, 	-- Total colectomi
+																	at0069, 	-- Polypectomi (slyngereseksjon)
+																	at0070, 	-- Proctocolectomi
+																	at0071]	-- Annet
+																}
+															}
+														}
+													}
+													ELEMENT[at0072] occurrences matches {0..1} matches {	-- Spesifiser inngrep colon
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+											CLUSTER[at0277] occurrences matches {0..1} matches {	-- Inngrep rectum
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0074] occurrences matches {0..1} matches {	-- Inngrep rectum
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0075, 	-- Fremre reseksjon
+																	at0076, 	-- Hartmann
+																	at0077, 	-- Rectumamputasjon
+																	at0078, 	-- Proctocolectomi
+																	at0079, 	-- Polypectomi (slyngereseksjon)
+																	at0080, 	-- Konvensjonell transanal eksisjon
+																	at0081, 	-- Transanal endoskopisk mikrokirurgi (TEM)
+																	at0082]	-- Annet
+																}
+															}
+														}
+													}
+													ELEMENT[at0083] occurrences matches {0..1} matches {	-- Spesifiser inngrep rectum
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+											ELEMENT[at0280] occurrences matches {0..1} matches {	-- Anastomose
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0281] occurrences matches {0..1} matches {	-- Avlastende stomi
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											CLUSTER[at0278] occurrences matches {0..1} matches {	-- Reseksjon av naboorgan
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0282] occurrences matches {0..1} matches {	-- Reseksjon av naboorgan
+														value matches {
+															DV_BOOLEAN matches {
+																value matches {True, False}
+															}
+														}
+													}
+													ELEMENT[at0114] occurrences matches {0..*} matches {	-- Lokalisasjon
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0115, 	-- Blære
+																	at0116, 	-- Prostata
+																	at0117, 	-- Vagina
+																	at0118, 	-- Uterus
+																	at0119, 	-- Adnex/ovarium
+																	at0120, 	-- Sacrum
+																	at0121, 	-- Halebein (coccygis)
+																	at0122, 	-- Bekkenvegg (lymfeknute)
+																	at0123, 	-- Bukvegg
+																	at0124]	-- Annet
+																}
+															}
+														}
+													}
+													ELEMENT[at0125] occurrences matches {0..*} matches {	-- Spesifiser lokalisasjon annet
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+											CLUSTER[at0126] occurrences matches {0..1} matches {	-- Operasjon uten reseksjon av tumorbærende tarmsegment	
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0130] occurrences matches {0..*} matches {	-- Utført inngrep
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0135, 	-- Bypass
+																	at0136, 	-- Avlastende stomi
+																	at0137, 	-- Kun eksplorativ laporatomi
+																	at0138]	-- Stenting
+																}
+															}
+														}
+													}
+												}
+											}
+											CLUSTER[at0139] occurrences matches {0..1} matches {	-- Intraoperative funn
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0140] occurrences matches {0..1} matches {	-- Levermetastaser
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0243, 	-- Ja
+																	at0244, 	-- Nei
+																	at0245]	-- Mistenkt
+																}
+															}
+														}
+													}
+													ELEMENT[at0141] occurrences matches {0..1} matches {	-- Peritoneal metastase/carcinomatose
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0246, 	-- Ja
+																	at0247, 	-- Nei
+																	at0248]	-- Mistenkt
+																}
+															}
+														}
+													}
+													ELEMENT[at0142] occurrences matches {0..1} matches {	-- Lymfeknutemetastaser utenfor reseksjonsområdet
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0249, 	-- Ja
+																	at0250, 	-- Nei
+																	at0251]	-- Mistenkt
+																}
+															}
+														}
+													}
+													ELEMENT[at0143] occurrences matches {0..1} matches {	-- Innvekst i naboorgan
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0252, 	-- Ja
+																	at0253, 	-- Nei
+																	at0254]	-- Mistenkt
+																}
+															}
+														}
+													}
+													ELEMENT[at0144] occurrences matches {0..1} matches {	-- Spesifiser annet naboorgan
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+													CLUSTER[at0145] occurrences matches {0..1} matches {	-- Perforasjon oppstått under operasjonen
+														items cardinality matches {1..*; unordered} matches {
+															ELEMENT[at0146] occurrences matches {0..*} matches {	-- Perforasjon status
+																value matches {
+																	DV_CODED_TEXT matches {
+																		defining_code matches {
+																			[local::
+																			at0147, 	-- Ingen perforasjon
+																			at0149, 	-- Tumornær perforasjon av tarmen
+																			at0151]	-- Perforasjon tumor
+																		}
+																	}
+																}
+															}
+														}
+													}
+													ELEMENT[at0153] occurrences matches {0..1} matches {	-- Resttumor lokalt (kirurgens vurdering)
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0154, 	-- Ja
+																	at0155, 	-- Nei
+																	at0156, 	-- Usikker
+																	at0157]	-- Ukjent
+																}
+															}
+														}
+													}
+													ELEMENT[at0283] occurrences matches {0..1} matches {	-- Er det i samme operasjon gjort inngrep mot metastaser?
+														value matches {
+															DV_BOOLEAN matches {
+																value matches {True, False}
+															}
+														}
+													}
+												}
+											}
+											CLUSTER[at0161] occurrences matches {0..1} matches {	-- Komplikasjoner
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0268] occurrences matches {0..*} matches {	-- Komplikasjoner
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0269, 	-- Ingen
+																	at0271, 	-- Anastomoselekkasje
+																	at0273]	-- Annet
+																}
+															}
+														}
+													}
+													ELEMENT[at0169] occurrences matches {0..1} matches {	-- Spesifiser komplikasjoner annet
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+													ELEMENT[at0170] occurrences matches {0..1} matches {	-- Reoperasjon
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0171, 	-- Ja
+																	at0172, 	-- Nei
+																	at0173]	-- Ukjent
+																}
+															}
+														}
+													}
+													ELEMENT[at0174] occurrences matches {0..1} matches {	-- Dato reoperasjon
+														value matches {
+															DV_DATE matches {
+																value matches {yyyy-mm-dd}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0176] occurrences matches {0..1} matches {	-- Kirurgi av lokalt residiv	
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0178] occurrences matches {0..1} matches {	-- Operasjonsdato (dd.mm.åååå)
+												value matches {
+													DV_DATE matches {*}
+												}
+											}
+											ELEMENT[at0179] occurrences matches {0..*} matches {	-- Inngrep lokalt residiv
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0180, 	-- Reseksjon
+															at0182]	-- Annet
+														}
+													}
+												}
+											}
+											ELEMENT[at0184] occurrences matches {0..1} matches {	-- Spesifiser inngrep
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0185] occurrences matches {0..1} matches {	-- Resttumor lokalt (kirurgens vurdering)
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0189, 	-- Ja
+															at0190, 	-- Nei
+															at0191, 	-- Usikker
+															at0192]	-- Ukjent
+														}
+													}
+												}
+											}
+											ELEMENT[at0284] occurrences matches {0..1} matches {	-- Er det i samme operasjon gjort inngrep mot metastase(r)
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0177] occurrences matches {0..1} matches {	-- Kirurgi av metastase(r)	
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0193] occurrences matches {0..*} matches {	-- Lokalisasjon av behandlet metastase
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0194, 	-- Lever
+															at0196, 	-- Peritoneum/carcinomatose
+															at0198, 	-- Lymfeknuter utenfor reseskjonsområde
+															at0200, 	-- Adnex/ovarium
+															at0202]	-- Annet
+														}
+													}
+												}
+											}
+											ELEMENT[at0204] occurrences matches {0..1} matches {	-- Spesifiser
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0205] occurrences matches {0..1} matches {	-- Operasjonsdato (dd.mm.åååå)
+												value matches {
+													DV_DATE matches {*}
+												}
+											}
+											CLUSTER[at0206] occurrences matches {0..1} matches {	-- Inngrep metastase
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0207] occurrences matches {0..*} matches {	-- Inngrep metastaser
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0208, 	-- Reseksjon av metastase
+																	at0210]	-- Annet
+																}
+															}
+														}
+													}
+													ELEMENT[at0213] occurrences matches {0..1} matches {	-- Spesifiser inngrep mot metaste(r)
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+													ELEMENT[at0214] occurrences matches {0..1} matches {	-- Makroskopisk resttumor (kirurgens vurdering)
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0215, 	-- Ja
+																	at0216, 	-- Nei
+																	at0217, 	-- Usikker
+																	at0218]	-- Ukjent
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0219] occurrences matches {0..*} matches {	-- Patologilaboratorium
+										include
+											archetype_id/value matches {/.*/}
+									}
+									CLUSTER[at0220] occurrences matches {0..1} matches {	-- Oppfølging/tiltak
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0221] occurrences matches {0..1} matches {	-- Oppfølging/tiltak 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0224, 	-- Behandling ved samme institusjon
+															at0225, 	-- Behandling ved annen institusjon
+															at0226, 	-- Ingen videre behandling
+															at0227, 	-- Ikke avklart
+															at0228]	-- Ukjent
+														}
+													}
+												}
+											}
+											ELEMENT[at0222] occurrences matches {0..*} matches {	-- Planlagt etterbehandling
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0229, 	-- Strålebehandling uten kjemoterapi
+															at0230, 	-- Kjemoterapi
+															at0231, 	-- Strålebehandling med kjemoterapi
+															at0232, 	-- Kirurgi for metastaser
+															at0233, 	-- Rutinemessig kontroll
+															at0234]	-- Ikke avklart
+														}
+													}
+												}
+											}
+											ELEMENT[at0223] occurrences matches {0..4} matches {	-- Årsak ingen behandling
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0235, 	-- Ikke indikasjon i følge retningslinjene
+															at0236, 	-- Pasientens ønske
+															at0237, 	-- Annet
+															at0238]	-- Ukjent
+														}
+													}
+												}
+											}
+											ELEMENT[at0239] occurrences matches {0..1} matches {	-- Spesifiser årsak til ingen behandling
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0240] occurrences matches {0..*} matches {	-- Kommentar
+										include
+											archetype_id/value matches {/.*/}
+									}
+									allow_archetype CLUSTER[at0274] occurrences matches {0..*} matches {	-- Melder
+										include
+											archetype_id/value matches {/.*/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"Kolorektal kreftmelding for kirurgi">
+					description = <"Er laget for å dekke meldeskjema for kirurgi til kreftregisteret i DIPS ARENA. Denne arketypen er laget etter kravpekk dokumentasjon_colorectal_v3.0 fra kreftregisteret.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Behandlingen var rettet mot">
+					description = <"Hva er behandlingen rettet mot">
+				>
+				["at0005"] = <
+					text = <"Primærtumor (med eller uten metastase(r))">
+					description = <"Inngrep rettet mot primærtumor og regionale lymfeknutemetastaser/
+fjernmetastaser når dette er gjort samtidig (samme dato)">
+				>
+				["at0006"] = <
+					text = <"Lokalt residiv (med eller uten metastase(r))">
+					description = <"Inngrep rettet mot lokalt residiv og regionale lymfeknutemetastaser/
+fjernmetastaser når dette er gjort samtidig (samme dato)">
+				>
+				["at0007"] = <
+					text = <"Kun metastase(r)">
+					description = <"Innngrep rettet mot regionale lymfeknutemetastaser/fjernmetastaser, uten samtidig kirurgisk behandling av primærtumor eller lokalt residiv">
+				>
+				["at0010"] = <
+					text = <"Forbehandling">
+					description = <"forbehandling">
+				>
+				["at0022"] = <
+					text = <"Spesifiser forbehandling annet">
+					description = <"Spesifiser annen forbehandling">
+				>
+				["at0023"] = <
+					text = <"Siktemål for behandlingen/preoperativ intensjon		">
+					description = <"Siktemål for behandlingen/preoperativ intensjon">
+				>
+				["at0024"] = <
+					text = <"Siktemål for behandlingen/preoperativ intensjon">
+					description = <"Siktemål for behandlingen/preoperativ intensjon">
+				>
+				["at0025"] = <
+					text = <"Kurativ">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Palliativ">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Ikke avklart">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Kirurgi av primærtumor">
+					description = <"Kirurgi av primærtumor">
+				>
+				["at0029"] = <
+					text = <"Hastegrad">
+					description = <"Hastegrad på kirugirsk inngrep">
+				>
+				["at0030"] = <
+					text = <"Elektiv">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Akutt pga obstruksjon">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Akutt pga perforasjon">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Akutt pga annet">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Spesifiser hastegrad annet">
+					description = <"Spesifiser hastegrad annet">
+				>
+				["at0035"] = <
+					text = <"ASA-score">
+					description = <"Pasientens ASA-Score">
+				>
+				["at0036"] = <
+					text = <"I - Frisk pasient">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"II - Pasient med mild systemsykdom">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"III - Pasient med alvorlig systemsykdom som ikke gir nedsatt funksjon">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"IV - Pasient med alvorlig systemsykdom som er livstruende">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"V - Moribund pasient som ikke vil overleve 24 t med eller uten kirurgi">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Kliniske parametre">
+					description = <"Kliniske parametere">
+				>
+				["at0046"] = <
+					text = <"Høyde (cm)">
+					description = <"pasientens høyde">
+				>
+				["at0047"] = <
+					text = <"Vekt (kg)">
+					description = <"pasientens vekt">
+				>
+				["at0048"] = <
+					text = <"Høyde Ukjent">
+					description = <"pasientens høyde er ukjent">
+				>
+				["at0049"] = <
+					text = <"Vekt Ukjent">
+					description = <"pasientens vekt er ukjent">
+				>
+				["at0050"] = <
+					text = <"BMI Ukjent">
+					description = <"pasientens BMI er ukjent">
+				>
+				["at0051"] = <
+					text = <"Type kirurgi">
+					description = <"Type kirurgisk inngrep utført">
+				>
+				["at0052"] = <
+					text = <"Åpen">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Laparoskopisk">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Laparoskopisk, konvertert åpen">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Operasjonsdato">
+					description = <"Dato for operasjon mot primærtumor">
+				>
+				["at0060"] = <
+					text = <"Inngrep colon">
+					description = <"inngrep utført på colon">
+				>
+				["at0061"] = <
+					text = <"Høyresidig hemicolectomi">
+					description = <"*">
+				>
+				["at0062"] = <
+					text = <"Venstresidig hemicolectomi">
+					description = <"*">
+				>
+				["at0063"] = <
+					text = <"Utvidet høyresidig hemicolectomi">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"Utvidet venstresidig hemicolectomi">
+					description = <"*">
+				>
+				["at0065"] = <
+					text = <"Transversumreseksjon">
+					description = <"*">
+				>
+				["at0066"] = <
+					text = <"Transversum fleksurreseksjon">
+					description = <"*">
+				>
+				["at0067"] = <
+					text = <"Sigmoidreseksjon (ev. inkludert Hartmann)">
+					description = <"*">
+				>
+				["at0068"] = <
+					text = <"Total colectomi">
+					description = <"*">
+				>
+				["at0069"] = <
+					text = <"Polypectomi (slyngereseksjon)">
+					description = <"*">
+				>
+				["at0070"] = <
+					text = <"Proctocolectomi">
+					description = <"*">
+				>
+				["at0071"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0072"] = <
+					text = <"Spesifiser inngrep colon">
+					description = <"Spesifiser annet inngrep mot colon">
+				>
+				["at0074"] = <
+					text = <"Inngrep rectum">
+					description = <"inngrep utført på rectum">
+				>
+				["at0075"] = <
+					text = <"Fremre reseksjon">
+					description = <"*">
+				>
+				["at0076"] = <
+					text = <"Hartmann">
+					description = <"*">
+				>
+				["at0077"] = <
+					text = <"Rectumamputasjon">
+					description = <"*">
+				>
+				["at0078"] = <
+					text = <"Proctocolectomi">
+					description = <"*">
+				>
+				["at0079"] = <
+					text = <"Polypectomi (slyngereseksjon)">
+					description = <"*">
+				>
+				["at0080"] = <
+					text = <"Konvensjonell transanal eksisjon">
+					description = <"*">
+				>
+				["at0081"] = <
+					text = <"Transanal endoskopisk mikrokirurgi (TEM)">
+					description = <"*">
+				>
+				["at0082"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0083"] = <
+					text = <"Spesifiser inngrep rectum">
+					description = <"Spesifiser annet inngrep mot rectum">
+				>
+				["at0114"] = <
+					text = <"Lokalisasjon">
+					description = <"Lokalisasjon til reseksjonert naboorgan">
+				>
+				["at0115"] = <
+					text = <"Blære">
+					description = <"*">
+				>
+				["at0116"] = <
+					text = <"Prostata">
+					description = <"*">
+				>
+				["at0117"] = <
+					text = <"Vagina">
+					description = <"*">
+				>
+				["at0118"] = <
+					text = <"Uterus">
+					description = <"*">
+				>
+				["at0119"] = <
+					text = <"Adnex/ovarium">
+					description = <"*">
+				>
+				["at0120"] = <
+					text = <"Sacrum">
+					description = <"*">
+				>
+				["at0121"] = <
+					text = <"Halebein (coccygis)">
+					description = <"*">
+				>
+				["at0122"] = <
+					text = <"Bekkenvegg (lymfeknute)">
+					description = <"*">
+				>
+				["at0123"] = <
+					text = <"Bukvegg">
+					description = <"*">
+				>
+				["at0124"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0125"] = <
+					text = <"Spesifiser lokalisasjon annet">
+					description = <"spesifiser okalisasjon til annet reseksjonert naboorgan">
+				>
+				["at0126"] = <
+					text = <"Operasjon uten reseksjon av tumorbærende tarmsegment	">
+					description = <"Operasjon uten reseksjon av tumorbærende tarmsegment">
+				>
+				["at0130"] = <
+					text = <"Utført inngrep">
+					description = <"Hvilke inngrep er utført mot tumorbærende tarmsegment">
+				>
+				["at0135"] = <
+					text = <"Bypass">
+					description = <"*">
+				>
+				["at0136"] = <
+					text = <"Avlastende stomi">
+					description = <"*">
+				>
+				["at0137"] = <
+					text = <"Kun eksplorativ laporatomi">
+					description = <"*">
+				>
+				["at0138"] = <
+					text = <"Stenting">
+					description = <"*">
+				>
+				["at0139"] = <
+					text = <"Intraoperative funn">
+					description = <"Intraoperative funn">
+				>
+				["at0140"] = <
+					text = <"Levermetastaser">
+					description = <"Status funn levermetastaser">
+				>
+				["at0141"] = <
+					text = <"Peritoneal metastase/carcinomatose">
+					description = <"Status funn Peritoneal metastase/carcinomatose">
+				>
+				["at0142"] = <
+					text = <"Lymfeknutemetastaser utenfor reseksjonsområdet">
+					description = <"Status funn Lymfeknutemetastaser utenfor reseksjonsområdet">
+				>
+				["at0143"] = <
+					text = <"Innvekst i naboorgan">
+					description = <"Status funn Innvekst i naboorgan">
+				>
+				["at0144"] = <
+					text = <"Spesifiser annet naboorgan">
+					description = <"spesifisera annet naboorgan ">
+				>
+				["at0145"] = <
+					text = <"Perforasjon oppstått under operasjonen">
+					description = <"Perforasjon oppstått under operasjonen">
+				>
+				["at0146"] = <
+					text = <"Perforasjon status">
+					description = <"*">
+				>
+				["at0147"] = <
+					text = <"Ingen perforasjon">
+					description = <"*">
+				>
+				["at0149"] = <
+					text = <"Tumornær perforasjon av tarmen">
+					description = <"*">
+				>
+				["at0151"] = <
+					text = <"Perforasjon tumor">
+					description = <"*">
+				>
+				["at0153"] = <
+					text = <"Resttumor lokalt (kirurgens vurdering)">
+					description = <"Resttumor lokalt (kirurgens vurdering)">
+				>
+				["at0154"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0155"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0156"] = <
+					text = <"Usikker">
+					description = <"*">
+				>
+				["at0157"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0161"] = <
+					text = <"Komplikasjoner">
+					description = <"komplikasjoner">
+				>
+				["at0169"] = <
+					text = <"Spesifiser komplikasjoner annet">
+					description = <"spesifiser komplikasjoner annet">
+				>
+				["at0170"] = <
+					text = <"Reoperasjon">
+					description = <"status reoperasjon">
+				>
+				["at0171"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0172"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0173"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0174"] = <
+					text = <"Dato reoperasjon">
+					description = <"dato for reoperasjon">
+				>
+				["at0176"] = <
+					text = <"Kirurgi av lokalt residiv	">
+					description = <"Kirurgi av lokalt residiv">
+				>
+				["at0177"] = <
+					text = <"Kirurgi av metastase(r)	">
+					description = <"*">
+				>
+				["at0178"] = <
+					text = <"Operasjonsdato (dd.mm.åååå)">
+					description = <"Operasjonsdato av lokalt residiv">
+				>
+				["at0179"] = <
+					text = <"Inngrep lokalt residiv">
+					description = <"Inngrep mot lokalt residiv">
+				>
+				["at0180"] = <
+					text = <"Reseksjon">
+					description = <"*">
+				>
+				["at0182"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0184"] = <
+					text = <"Spesifiser inngrep">
+					description = <"Spesifiser annet inngrep mot lokalt residiv">
+				>
+				["at0185"] = <
+					text = <"Resttumor lokalt (kirurgens vurdering)">
+					description = <"Resttumor lokalt (kirurgens vurdering)">
+				>
+				["at0189"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0190"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0191"] = <
+					text = <"Usikker">
+					description = <"*">
+				>
+				["at0192"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0193"] = <
+					text = <"Lokalisasjon av behandlet metastase">
+					description = <"Lokalisasjon for behandlet metastase(r)">
+				>
+				["at0194"] = <
+					text = <"Lever">
+					description = <"*">
+				>
+				["at0196"] = <
+					text = <"Peritoneum/carcinomatose">
+					description = <"*">
+				>
+				["at0198"] = <
+					text = <"Lymfeknuter utenfor reseskjonsområde">
+					description = <"*">
+				>
+				["at0200"] = <
+					text = <"Adnex/ovarium">
+					description = <"*">
+				>
+				["at0202"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0204"] = <
+					text = <"Spesifiser">
+					description = <"Spesifiser lokalsiasjon annet av behandlet metastase(r)">
+				>
+				["at0205"] = <
+					text = <"Operasjonsdato (dd.mm.åååå)">
+					description = <"Operasjonsdato for innrep mot metastase(r)">
+				>
+				["at0206"] = <
+					text = <"Inngrep metastase">
+					description = <"*">
+				>
+				["at0207"] = <
+					text = <"Inngrep metastaser">
+					description = <"*">
+				>
+				["at0208"] = <
+					text = <"Reseksjon av metastase">
+					description = <"*">
+				>
+				["at0210"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0213"] = <
+					text = <"Spesifiser inngrep mot metaste(r)">
+					description = <"Spesifiser inngrep mot metaste(r)">
+				>
+				["at0214"] = <
+					text = <"Makroskopisk resttumor (kirurgens vurdering)">
+					description = <"Makroskopisk resttumor (kirurgens vurdering)">
+				>
+				["at0215"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0216"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0217"] = <
+					text = <"Usikker">
+					description = <"*">
+				>
+				["at0218"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0219"] = <
+					text = <"Patologilaboratorium">
+					description = <"*">
+				>
+				["at0220"] = <
+					text = <"Oppfølging/tiltak">
+					description = <"Oppfølging/tiltak">
+				>
+				["at0221"] = <
+					text = <"Oppfølging/tiltak ">
+					description = <"Oppfølging/tiltak">
+				>
+				["at0222"] = <
+					text = <"Planlagt etterbehandling">
+					description = <"Oppfølging/tiltak">
+				>
+				["at0223"] = <
+					text = <"Årsak ingen behandling">
+					description = <"Årsak ingen behandling">
+				>
+				["at0224"] = <
+					text = <"Behandling ved samme institusjon">
+					description = <"*">
+				>
+				["at0225"] = <
+					text = <"Behandling ved annen institusjon">
+					description = <"*">
+				>
+				["at0226"] = <
+					text = <"Ingen videre behandling">
+					description = <"*">
+				>
+				["at0227"] = <
+					text = <"Ikke avklart">
+					description = <"*">
+				>
+				["at0228"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0229"] = <
+					text = <"Strålebehandling uten kjemoterapi">
+					description = <"*">
+				>
+				["at0230"] = <
+					text = <"Kjemoterapi">
+					description = <"*">
+				>
+				["at0231"] = <
+					text = <"Strålebehandling med kjemoterapi">
+					description = <"*">
+				>
+				["at0232"] = <
+					text = <"Kirurgi for metastaser">
+					description = <"*">
+				>
+				["at0233"] = <
+					text = <"Rutinemessig kontroll">
+					description = <"*">
+				>
+				["at0234"] = <
+					text = <"Ikke avklart">
+					description = <"*">
+				>
+				["at0235"] = <
+					text = <"Ikke indikasjon i følge retningslinjene">
+					description = <"*">
+				>
+				["at0236"] = <
+					text = <"Pasientens ønske">
+					description = <"*">
+				>
+				["at0237"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0238"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0239"] = <
+					text = <"Spesifiser årsak til ingen behandling">
+					description = <"Spesifiser årsak annet ingen behandling">
+				>
+				["at0240"] = <
+					text = <"Kommentar">
+					description = <"*">
+				>
+				["at0242"] = <
+					text = <"Lokalisasjon av primærtumor">
+					description = <"Lokalisasjon av primærtumor">
+				>
+				["at0243"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0244"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0245"] = <
+					text = <"Mistenkt">
+					description = <"*">
+				>
+				["at0246"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0247"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0248"] = <
+					text = <"Mistenkt">
+					description = <"*">
+				>
+				["at0249"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0250"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0251"] = <
+					text = <"Mistenkt">
+					description = <"*">
+				>
+				["at0252"] = <
+					text = <"Ja">
+					description = <"*">
+				>
+				["at0253"] = <
+					text = <"Nei">
+					description = <"*">
+				>
+				["at0254"] = <
+					text = <"Mistenkt">
+					description = <"*">
+				>
+				["at0255"] = <
+					text = <"BMI">
+					description = <"pasientens BMI">
+				>
+				["at0259"] = <
+					text = <"Forbehandling">
+					description = <"Forbehandling pasienten har mottat">
+				>
+				["at0260"] = <
+					text = <"Ingen">
+					description = <"*">
+				>
+				["at0261"] = <
+					text = <"Kjemoterapi">
+					description = <"*">
+				>
+				["at0262"] = <
+					text = <"Strålebehandling">
+					description = <"*">
+				>
+				["at0263"] = <
+					text = <"Strålebehandling med kjemoterapi">
+					description = <"*">
+				>
+				["at0264"] = <
+					text = <"Avlastende stomi">
+					description = <"*">
+				>
+				["at0265"] = <
+					text = <"Stenting">
+					description = <"*">
+				>
+				["at0266"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0267"] = <
+					text = <"Ukjent">
+					description = <"*">
+				>
+				["at0268"] = <
+					text = <"Komplikasjoner">
+					description = <"Komplikasjoner som har oppstått">
+				>
+				["at0269"] = <
+					text = <"Ingen">
+					description = <"*">
+				>
+				["at0271"] = <
+					text = <"Anastomoselekkasje">
+					description = <"*">
+				>
+				["at0273"] = <
+					text = <"Annet">
+					description = <"*">
+				>
+				["at0274"] = <
+					text = <"Melder">
+					description = <"*">
+				>
+				["at0275"] = <
+					text = <"Hastegrad">
+					description = <"*">
+				>
+				["at0276"] = <
+					text = <"Inngrep colon">
+					description = <"*">
+				>
+				["at0277"] = <
+					text = <"Inngrep rectum">
+					description = <"*">
+				>
+				["at0278"] = <
+					text = <"Reseksjon av naboorgan">
+					description = <"*">
+				>
+				["at0279"] = <
+					text = <"Reseksjon av tumor">
+					description = <"*">
+				>
+				["at0280"] = <
+					text = <"Anastomose">
+					description = <"har pasienten fått anestomose">
+				>
+				["at0281"] = <
+					text = <"Avlastende stomi">
+					description = <"har pasienten fått avlastende stomi">
+				>
+				["at0282"] = <
+					text = <"Reseksjon av naboorgan">
+					description = <"er det gjort en reseksjon av naboorgan">
+				>
+				["at0283"] = <
+					text = <"Er det i samme operasjon gjort inngrep mot metastaser?">
+					description = <"Er det i samme operasjon gjort inngrep mot metastaser?">
+				>
+				["at0284"] = <
+					text = <"Er det i samme operasjon gjort inngrep mot metastase(r)">
+					description = <"Er det i samme operasjon gjort inngrep mot metastase(r)">
+				>
+			>
+		>
+	>
