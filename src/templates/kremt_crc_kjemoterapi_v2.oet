@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="openEHR/v1/Template">
+  <id>d6f156a2-3fb7-45d8-9f28-7498f1de0c26</id>
+  <name>Kreftregisteret Kolorektalskjema kjemoterapi</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.kreftmelding_kolorektalkreft_dips.v1" concept_name="Kreftmelding kolorektalkreft dips">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.kreftmelding_kolorektalkreft_kjemoterapi_dips.v1" concept_name="Kreftmelding kolorektalkreft kjemoterapi dips" max="1" path="/content">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.kreftmelding_kolorektal_lokalisasjon_av_primaertumor_dips.v1" concept_name="Lokalisasjon av primaertumor" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0353]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.kreftmelding_kolorektal_cea_dips.v1" concept_name="Cea" path="/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[at0425]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.kreftmelding_kolorektal_ecog_funksjonsstatus_dips.v1" concept_name="Ecog funksjonsstatus" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0354]/items[at0426]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.kreftmelding_kolorektal_melder_dips.v1" concept_name="Melder" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0401]" />
+    </Content>
+    <Context />
+  </definition>
+
+
+</template>
